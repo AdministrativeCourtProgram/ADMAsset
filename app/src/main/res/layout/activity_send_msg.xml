@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SendMsgActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titelText"
+        android:background="#83c7ec"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/committee_form_not_our_asset" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/assetText"
+        android:layout_below="@+id/titelText"
+        android:layout_margin="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="2">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Asset Number:"
+                android:gravity="right"
+                android:textSize="15dp"
+                android:textColor="#00aaff"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Asset Name:"
+                android:gravity="right"
+                android:textSize="15dp"
+                android:textColor="#00aaff"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Organization:"
+                android:gravity="right"
+                android:textSize="15dp"
+                android:textColor="#00aaff"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/assetNum"
+                android:textSize="15dp"
+                android:textColor="#00aaff"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/assetName"
+                android:textSize="15dp"
+                android:textColor="#00aaff"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/assetOrgan"
+                android:textSize="15dp"
+                android:textColor="#00aaff"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_centerInParent="true"
+        android:id="@+id/blueLine"
+        android:background="#00aaff"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_below="@+id/assetText"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NOTE : FOR THIS ASSET"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:padding="15dp"
+        android:gravity="center_horizontal"
+        android:id="@+id/textview"
+        android:layout_below="@+id/blueLine"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:lines="14"
+        android:gravity="top"
+        android:id="@+id/textMsg"
+        android:hint="NOTICE:"
+        android:textSize="10dp"
+        android:padding="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/messagebox"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textview"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/send_data_button"
+        android:id="@+id/sendMsgBtn"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:onClick="onClick"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textMsg"/>
+
+</RelativeLayout>

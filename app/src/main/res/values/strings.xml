@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<resources>
+    <string name="app_name">ADMAsset</string>
+    <string name="menu_title">Committee : Menu</string>
+    <string name="menu_btn1">Check Asset</string>
+    <string name="menu_btn2">List of Asset</string>
+    <string name="menu_btn3">Asset Report</string>
+    <string name="logout">Logout</string>
+    <string name="committee">Committee</string>
+    <string name="waiting">Waiting Asset Report</string>
+    <string name="waiting2">Select condition of list</string>
+    <string name="select_workgroup">Select Workgroup from List</string>
+    <string name="select_floor">Select Floor</string>
+    <string name="select_room">Select Room</string>
+
+    <string-array name="workgroup_array">
+        <item>Ateam</item>
+        <item>Bteam</item>
+        <item>Cteam</item>
+        <item>Dteam</item>
+        <item>Eteam</item>
+        <item>Fteam</item>
+    </string-array>
+
+    <string-array name="floor_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <string-array name="room_array">
+        <item>Aroom</item>
+        <item>Broom</item>
+        <item>Croom</item>
+        <item>Droom</item>
+        <item>Eroom</item>
+        <item>Froom</item>
+    </string-array>
+
+    <string name="summary_title">Committee : Summary Report</string>
+</resources>
