@@ -130,22 +130,12 @@ public class BarcodeReaderActivity extends AppCompatActivity {
                     public void onResponse(Call<ScanInfoResult> call, Response<ScanInfoResult> response) {
                         if(response.isSuccessful()){
                             if(response.body()!= null){
-
                                 Toast.makeText(getApplicationContext(),"succes: "+response.body().status,Toast.LENGTH_LONG).show();
-                                //Toast.makeText(getApplicationContext(), "통신성공 result: "+response.body().status, Toast.LENGTH_SHORT).show();
-//                                 파란색
+
                                 finish();
                                 Intent intent = new Intent(BarcodeReaderActivity.this,RecyclerViewActivity.class);
                                 intent.putExtra("status", response.body().status);
-//                                Log.v("TAG","접근하기기기기"+ response.body().status);
-
-
                                 startActivity(intent);
-
-
-                               // scannerView.stopCamera();
-                                //setContentView(R.layout.activity_menu);
-
                             }
                         }else{
                             try {

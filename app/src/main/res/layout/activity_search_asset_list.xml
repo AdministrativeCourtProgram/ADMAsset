@@ -30,7 +30,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.1"/>
+        android:layout_weight="0.1"
+        android:id="@+id/txtListSize"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -84,7 +86,7 @@
             </LinearLayout>
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerlistview"
+                android:id="@+id/recyclerAssetList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="4">
@@ -100,21 +102,4 @@
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.5"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/scanBtn"
-        android:text="scan_code"
-        android:layout_weight="0.2"
-        android:layout_gravity="center_horizontal"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.5"/>
 </LinearLayout>

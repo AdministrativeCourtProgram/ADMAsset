@@ -30,12 +30,6 @@ public class MenuActivity extends AppCompatActivity {
             // Check Asset
             case R.id.checkAssetBtn:
                 intent = new Intent(MenuActivity.this, BarcodeReaderActivity.class);
-//                intent.putExtra("id",  sf.getString("id","Nothing"));
-//                intent.putExtra("user_name", user_name);
-//                intent.putExtra("check_court", check_court);
-//                intent.putExtra("group_id", group_id);
-//                intent.putExtra("check_id", check_id);
-//                intent.putExtra("id_token", id_token);
                 startActivity(intent);
                 break;
 
@@ -49,11 +43,6 @@ public class MenuActivity extends AppCompatActivity {
             // Report Asset
             case R.id.assetReportBtn:
                 intent = new Intent(MenuActivity.this,SummaryActivity.class);
-//                intent.putExtra("id",sf.getString("id","1"));
-//                intent.putExtra("user_name",sf.getString("user_name","1"));
-//                intent.putExtra("check_court",sf.getString("check_court","1"));
-//                intent.putExtra("group_id",sf.getString("group_id","1"));
-//                intent.putExtra("id_token", sf.getString("id_token","1"));
                 startActivity(intent);
                 break;
         }

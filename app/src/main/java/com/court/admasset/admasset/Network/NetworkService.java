@@ -1,35 +1,26 @@
 package com.court.admasset.admasset.Network;
 
-import android.support.annotation.Nullable;
-
 import com.court.admasset.admasset.Model.CheckedListInfo;
 import com.court.admasset.admasset.Model.CheckedListResult;
 import com.court.admasset.admasset.Model.LoginInfo;
 import com.court.admasset.admasset.Model.LoginInfoResult;
 import com.court.admasset.admasset.Model.MaindataFloorResult;
+import com.court.admasset.admasset.Model.MaindataRoomResult;
+import com.court.admasset.admasset.Model.MaindataWorkgroupResult;
 import com.court.admasset.admasset.Model.ScanInfo;
 import com.court.admasset.admasset.Model.ScanInfoResult;
 import com.court.admasset.admasset.Model.GetReportInfo;
 import com.court.admasset.admasset.Model.GetReportInfoResult;
+import com.court.admasset.admasset.Model.SearchAssetResult;
 
-
-import java.util.List;
 import java.util.Map;
 
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.DELETE;
 import retrofit2.http.GET;
-import retrofit2.http.Header;
+import retrofit2.http.Url;
 import retrofit2.http.HeaderMap;
-import retrofit2.http.Headers;
-import retrofit2.http.Multipart;
 import retrofit2.http.POST;
-import retrofit2.http.Part;
-import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 public interface NetworkService {
     @POST("api/user/login")
@@ -52,4 +43,15 @@ public interface NetworkService {
 
     @GET("api/maindata/floor")
     Call<MaindataFloorResult> getMaindataFloorResult(@HeaderMap Map<String, String> headers);
+
+    @GET("api/maindata/room")
+    Call<MaindataRoomResult> getMaindataRoomResult(@HeaderMap Map<String, String> headers);
+
+    @GET
+    Call<MaindataWorkgroupResult> getMaindataWorkgroupResult(@Url String check_court,@HeaderMap Map<String, String> headers);
+
+    @POST("api/asset/searchAsset")
+    Call<SearchAssetResult> getSearchAssetResult(
+            @HeaderMap Map<String, String> headers,
+            @Body GetReportInfo getReportInfo);
 }

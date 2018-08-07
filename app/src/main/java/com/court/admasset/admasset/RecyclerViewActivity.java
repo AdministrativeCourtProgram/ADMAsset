@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.court.admasset.admasset.Model.CheckedListInfo;
@@ -58,6 +59,17 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
         //Barcode 결과값 받기
         intent = getIntent();
+
+        // ====== scan Button ====== //
+        Button scanBtn = (Button)findViewById(R.id.scanBtn);
+        scanBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RecyclerViewActivity.this, BarcodeReaderActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 //        firstcall=intent.getStringExtra("Firstcall");
         barcode_result = intent.getStringExtra("status");

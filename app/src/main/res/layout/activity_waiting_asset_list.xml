@@ -57,7 +57,6 @@
         android:layout_below="@+id/floorList"
         android:prompt="@string/select_room" />
 
-
     <ImageButton
         android:layout_height="30dp"
         android:layout_width="30dp"
@@ -68,6 +67,14 @@
         android:background="@android:color/transparent"
         android:layout_gravity="center"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="search Asset"
+        android:layout_above="@id/homeBtn"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/searchAssetBtn"/>
 
     <TextView android:layout_height="wrap_content"
         android:layout_width="wrap_content"
