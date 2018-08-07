@@ -33,10 +33,10 @@
         <activity android:name=".SendMsgActivity" />
         <activity android:name=".WaitingAssetActivity" />
         <activity android:name=".MenuActivity" />
-         <activity android:name=".DuplicateDialogActivity" />
         <activity android:name=".SummaryActivity" />
         <activity android:name=".RecyclerViewActivity" />
-        <activity android:name=".BarcodeReaderActivity"></activity>
+        <activity android:name=".BarcodeReaderActivity" />
+        <activity android:name=".SearchAssetListActivity"></activity>
     </application>
 
 </manifest>

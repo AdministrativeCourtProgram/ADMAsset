@@ -1,5 +1,6 @@
 package com.court.admasset.admasset.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class GetReportInfoResult {

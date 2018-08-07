@@ -11,6 +11,7 @@ import com.court.admasset.admasset.Model.ScanInfo;
 import com.court.admasset.admasset.Model.ScanInfoResult;
 import com.court.admasset.admasset.Model.GetReportInfo;
 import com.court.admasset.admasset.Model.GetReportInfoResult;
+import com.court.admasset.admasset.Model.SearchAssetResult;
 
 import java.util.Map;
 
@@ -49,4 +50,8 @@ public interface NetworkService {
     @GET
     Call<MaindataWorkgroupResult> getMaindataWorkgroupResult(@Url String check_court,@HeaderMap Map<String, String> headers);
 
+    @POST("api/asset/searchAsset")
+    Call<SearchAssetResult> getSearchAssetResult(
+            @HeaderMap Map<String, String> headers,
+            @Body GetReportInfo getReportInfo);
 }
