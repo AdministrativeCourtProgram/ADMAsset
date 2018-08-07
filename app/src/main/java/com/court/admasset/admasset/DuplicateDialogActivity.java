@@ -2,15 +2,9 @@ package com.court.admasset.admasset;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import com.court.admasset.admasset.Model.CheckedListResult;
-
-import retrofit2.Callback;
 
 
 public class DuplicateDialogActivity extends Dialog {

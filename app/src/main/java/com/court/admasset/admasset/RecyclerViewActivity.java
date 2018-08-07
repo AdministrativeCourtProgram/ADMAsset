@@ -38,7 +38,9 @@ public class RecyclerViewActivity extends AppCompatActivity {
     private String barcode_result;
     private NetworkService service;
     private DuplicateDialogActivity duplicateDialog;
+    private NotFoundDialogActivity notfoundDialg;
     private Map<String, String> map;
+    private int flag;
 
     Intent intent;
 
@@ -71,10 +73,12 @@ public class RecyclerViewActivity extends AppCompatActivity {
             }
         });
 
-//        firstcall=intent.getStringExtra("Firstcall");
         barcode_result = intent.getStringExtra("status");
         if(barcode_result.equals("Asset data duplicated.")) {
-            callDialog();
+            callDuplicateDialog();
+        }
+        if(barcode_result.equals("Not Found")){
+            callNotFoundDialog();
         }
         Log.v("TAG","barcode_result" +barcode_result);
 
@@ -83,8 +87,6 @@ public class RecyclerViewActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);             //리니어레이아웃의 형태이면 방향은 수직
         reView.setLayoutManager(layoutManager);//리사이클러뷰에 레이아웃매니저를 달아준다
-
-
 
         service = ApplicationController.getInstance().getNetworkService();
         checkedListInfo = new CheckedListInfo();
@@ -98,8 +100,6 @@ public class RecyclerViewActivity extends AppCompatActivity {
         map = new HashMap<>();
         map.put("Content-Type","application/json");
         map.put("Authorization","Bearer " + sf.getString("id_token","1"));
-
-
 
         Log.d("AAAA", checkedListInfo.id+","+checkedListInfo.user_name
                 +","+checkedListInfo.check_court+","+checkedListInfo.group_id
@@ -115,7 +115,8 @@ public class RecyclerViewActivity extends AppCompatActivity {
                     if(response.body().status != null) {
                         Toast.makeText(RecyclerViewActivity.this, "통신성공", Toast.LENGTH_SHORT).show();
                         itemdata = response.body().result;
-                        adapter = new RecyclerViewAdapter(getApplicationContext(), itemdata, clickEvent);
+                        flag = response.body().result.get(0).samecourt;
+                        adapter = new RecyclerViewAdapter(getApplicationContext(), itemdata, clickEvent,flag);
                         reView.setAdapter(adapter);
 
                     }
@@ -134,19 +135,16 @@ public class RecyclerViewActivity extends AppCompatActivity {
             View.OnClickListener clickEvent = new View.OnClickListener() {
                 public void onClick(View v) {
                     final int itemPosition = reView.getChildLayoutPosition(v);
-                    if(barcode_result.equals("Asset data duplicated.")) {
+                    if(flag ==0 ) {
                         Intent intent = new Intent(RecyclerViewActivity.this, SendMsgActivity.class);
                         startActivity(intent);
-
                 }
                 }
 
             };
-
-
         });
     }
-    public void callDialog()
+    public void callDuplicateDialog()
     {
         duplicateDialog = new DuplicateDialogActivity(this);
         duplicateDialog.show();
@@ -157,5 +155,16 @@ public class RecyclerViewActivity extends AppCompatActivity {
             }
         });
     }
+    public void callNotFoundDialog() {
+        notfoundDialg = new NotFoundDialogActivity(this);
+        notfoundDialg.show();
+        duplicateDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+
+            }
+        });
+    }
+
 
 }

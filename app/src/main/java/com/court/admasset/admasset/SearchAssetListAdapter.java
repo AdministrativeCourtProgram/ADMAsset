@@ -35,7 +35,7 @@ public class SearchAssetListAdapter extends RecyclerView.Adapter<MyViewHolders> 
     public void onBindViewHolder(MyViewHolders holder, final int position) {
         // 뷰홀더에 메모리상에 보유할 항목을 뷰홀더에 바인딩 해주는 함수!!
         // 레이아웃과 아이템 연결
-        //holder.re_index.setText(itemdatas.get(position).row_number);
+        holder.re_index.setText(itemdatas.get(position).row_number);
         holder.re_no.setText(itemdatas.get(position).asset_no);
         holder.re_name.setText(itemdatas.get(position).asset_name);
         holder.re_organization.setText(itemdatas.get(position).organization);
