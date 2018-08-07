@@ -12,12 +12,3 @@ public class GetReportInfoResult {
         public Number flag_count;
     }
 }
-
-/*
-* package com.court.admasset.admasset.Model;
-
-public class GetReportInfoResult {
-    public String check_flag;
-    public Number FLAG_COUNT;
-}
-*/
