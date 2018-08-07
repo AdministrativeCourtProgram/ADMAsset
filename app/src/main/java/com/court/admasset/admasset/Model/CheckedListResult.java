@@ -7,7 +7,7 @@ public class CheckedListResult {
     public ArrayList<CheckedData> result;
 
     public class CheckedData {
-        //        public Number index;
+        public String row_number;
         public String asset_no;
         public String asset_name;
         public String organization;

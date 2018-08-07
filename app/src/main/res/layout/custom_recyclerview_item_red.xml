@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:id="@+id/parent_layout"
+    android:background="@drawable/bluebackground"
     >
 
     <TextView
@@ -45,11 +46,6 @@
         android:layout_weight="3" />
 
 
-    <!--<View-->
-        <!--android:id="@+id/samecourtView"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="2dp"-->
-        <!--android:background="#FF0000"/>-->
 
 
 </LinearLayout>

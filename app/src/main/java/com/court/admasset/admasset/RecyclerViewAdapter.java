@@ -1,6 +1,7 @@
 package com.court.admasset.admasset;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +20,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolders> {
     private View.OnClickListener clickListener;
     private Context context;
     private View view;
+    private int flag =2;
+    int prepositon;
 
     //    , View.OnClickListener clickListener
     public RecyclerViewAdapter(Context context, ArrayList<CheckedListResult.CheckedData> itemdatas,View.OnClickListener clickListener) {
@@ -29,20 +32,35 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolders> {
 
     @Override
     public MyViewHolders onCreateViewHolder(ViewGroup parent, int viewType) {
-        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_recyclerview_item, parent, false);
+        if(flag ==1){
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_recyclerview_item, parent, false);
+        }
+        else {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_recyclerview_item_red, parent, false);
+
+
+        }
+
         MyViewHolders viewHolder = new MyViewHolders(view);             //커스텀 뷰홀더 객체 생성
-        view.setOnClickListener(clickListener);                     // 정의된 클릭이벤트를 달아준다
+        view.setOnClickListener(clickListener);// 정의된 클릭이벤트를 달아준다
         return viewHolder;
     }
+
 
     @Override
     public void onBindViewHolder(MyViewHolders holder, final int position) {
         // 뷰홀더에 메모리상에 보유할 항목을 뷰홀더에 바인딩 해주는 함수!!
         // 레이아웃과 아이템 연결
+        holder.re_index.setText(itemdatas.get(position).row_number);
         holder.re_no.setText(itemdatas.get(position).asset_no);
         holder.re_name.setText(itemdatas.get(position).asset_name);
         holder.re_organization.setText(itemdatas.get(position).organization);
 
+//        Log.v("TAG","preposition"+prepositon+"11111111"+position);
+//        if(prepositon == position) {
+//            holder.re_parentLayout.setBackgroundColor(Color.rgb(178, 204, 255));
+//        }
+//        prepositon +=1;
 //        holder.re_parentLayout.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {

@@ -3,6 +3,7 @@ package com.court.admasset.admasset;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -34,7 +35,6 @@ public class RecyclerViewActivity extends AppCompatActivity {
     private String group_id;
     private String check_id;
     private String barcode_result;
-    private String firstcall;
     private NetworkService service;
     private DuplicateDialogActivity duplicateDialog;
     private Map<String, String> map;
@@ -61,19 +61,10 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
 //        firstcall=intent.getStringExtra("Firstcall");
         barcode_result = intent.getStringExtra("status");
-
-
-
-//        Log.v("TAG","firstcall" +firstcall);
-        Log.v("TAG","barcode_result" +barcode_result);
-
-        if(barcode_result.equals("Asset data duplicated."))
-        {
+        if(barcode_result.equals("Asset data duplicated.")) {
             callDialog();
         }
-
-
-
+        Log.v("TAG","barcode_result" +barcode_result);
 
         reView = (RecyclerView) findViewById(R.id.recyclerlistview);
         reView.setHasFixedSize(true);
@@ -108,12 +99,13 @@ public class RecyclerViewActivity extends AppCompatActivity {
             public void onResponse(Call<CheckedListResult> call, Response<CheckedListResult> response) {
 //                Toast.makeText(RecyclerViewActivity.this, "통신성공123", Toast.LENGTH_SHORT).show();
                 if(response.isSuccessful()) {
-//                    Toast.makeText(RecyclerViewActivity.this, "통신성공", Toast.LENGTH_SHORT).show();
+
                     if(response.body().status != null) {
-//                        Log.d("111111111111111",response.body().status);
+                        Toast.makeText(RecyclerViewActivity.this, "통신성공", Toast.LENGTH_SHORT).show();
                         itemdata = response.body().result;
                         adapter = new RecyclerViewAdapter(getApplicationContext(), itemdata, clickEvent);
                         reView.setAdapter(adapter);
+
                     }
                     else {
                         ApplicationController.showToast(getApplication(), "데이터 가져오기 실패");
@@ -126,13 +118,18 @@ public class RecyclerViewActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "통신 실패", Toast.LENGTH_SHORT).show();
             }
 
+
             View.OnClickListener clickEvent = new View.OnClickListener() {
                 public void onClick(View v) {
+                    final int itemPosition = reView.getChildLayoutPosition(v);
+                    if(barcode_result.equals("Asset data duplicated.")) {
+                        Intent intent = new Intent(RecyclerViewActivity.this, SendMsgActivity.class);
+                        startActivity(intent);
 
+                }
                 }
 
             };
-
 
 
         });
@@ -144,9 +141,9 @@ public class RecyclerViewActivity extends AppCompatActivity {
         duplicateDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialog) {
-                Intent intent = new Intent(RecyclerViewActivity.this, SendMsgActivity.class);
-                startActivity(intent);
+
             }
         });
     }
+
 }

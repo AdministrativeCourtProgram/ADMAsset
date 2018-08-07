@@ -155,6 +155,7 @@ public class BarcodeReaderActivity extends AppCompatActivity {
                                 finish();
 //                                 Asset data duplicated or Asset data not found
                                 Intent intent = new Intent(BarcodeReaderActivity.this,RecyclerViewActivity.class);
+//                                intent.putExtra("status", response.body().status);
                                 intent.putExtra("status", json.getString("status"));
                                 startActivity(intent);
 
