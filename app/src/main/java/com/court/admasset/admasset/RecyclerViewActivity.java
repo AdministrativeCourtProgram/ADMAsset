@@ -115,8 +115,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
                     if(response.body().status != null) {
                         Toast.makeText(RecyclerViewActivity.this, "통신성공", Toast.LENGTH_SHORT).show();
                         itemdata = response.body().result;
-                        flag = response.body().result.get(0).samecourt;
-                        adapter = new RecyclerViewAdapter(getApplicationContext(), itemdata, clickEvent,flag);
+                        adapter = new RecyclerViewAdapter(getApplicationContext(), itemdata, clickEvent);
                         reView.setAdapter(adapter);
 
                     }

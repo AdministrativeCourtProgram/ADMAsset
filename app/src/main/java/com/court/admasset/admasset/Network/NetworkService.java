@@ -54,4 +54,9 @@ public interface NetworkService {
     Call<SearchAssetResult> getSearchAssetResult(
             @HeaderMap Map<String, String> headers,
             @Body GetReportInfo getReportInfo);
+
+    @POST("api/asset/getCheckedList")
+    Call<SearchAssetResult> getSearchAssetResult2(
+            @HeaderMap Map<String, String> headers,
+            @Body GetReportInfo getReportInfo);
 }

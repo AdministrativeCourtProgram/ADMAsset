@@ -20,25 +20,25 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolders> {
     private View.OnClickListener clickListener;
     private Context context;
     private View view;
-    private int flag;
     int prepositon;
 
     //    , View.OnClickListener clickListener
-    public RecyclerViewAdapter(Context context, ArrayList<CheckedListResult.CheckedData> itemdatas,View.OnClickListener clickListener,int flag) {
+    public RecyclerViewAdapter(Context context, ArrayList<CheckedListResult.CheckedData> itemdatas,View.OnClickListener clickListener) {
         this.context = context;
         this.itemdatas = itemdatas;
         this.clickListener = clickListener;
-        this.flag = flag;
     }
 
     @Override
     public MyViewHolders onCreateViewHolder(ViewGroup parent, int viewType) {
-        if(flag ==1){
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_recyclerview_item_red, parent, false);
+        for(int i=0; i<itemdatas.size(); i++){
+            Log.d("pleaseeee:",i+","+itemdatas.get(i).samecourt+"");
+            if(itemdatas.get(i).samecourt ==1){
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_recyclerview_item, parent, false);
+            }
+            else {
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_recyclerview_item_red, parent, false);
         }
-        else {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_recyclerview_item, parent, false);
-
 
 
         }
