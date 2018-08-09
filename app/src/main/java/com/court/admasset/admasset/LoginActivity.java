@@ -17,6 +17,9 @@ import com.court.admasset.admasset.Network.ApplicationController;
 import com.court.admasset.admasset.Model.LoginInfo;
 import com.court.admasset.admasset.Model.LoginInfoResult;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     NetworkService service;
 
     boolean doubleBackToExitPressedOnce = false;
+    private SharedPreferences sf = null;
 
 
     @Override
@@ -52,12 +56,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private void initNetwork() {
-
         service = ApplicationController.getInstance().getNetworkService();
-
-//        Log.v("TAG", "네트워크서비스 instance값 확인" + ApplicationController.getInstance());
-//        Log.v("TAG", "네트워크서비스 networkService값 확인" + ApplicationController.getInstance().getNetworkService());
-
     }
 
     // 클릭이벤트 초기화
@@ -91,12 +90,54 @@ public class LoginActivity extends AppCompatActivity {
                             response.body().result = true;
 
                             if (response.body().result) {
-                                // storage sharedPreferences
-                                storageSharedPre(response.body().id + "", response.body().user_name, response.body().check_court
-                                        , response.body().group_id, response.body().check_id, response.body().id_token, response.body().refreshToken);
+                                if(getSharedPreferences("asset",MODE_PRIVATE).getString("loginDate","1") != "1"){
+                                    sf = getSharedPreferences("asset",MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sf.edit();
 
-                                Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
-                                startActivity(intent);
+                                    Log.d("login: ","loginDate 가지고 있음"+sf.getString("loginDate","1"));
+                                    // check date
+                                    long now = System.currentTimeMillis();
+                                    Date date = new Date(now);
+                                    SimpleDateFormat sdfNow = new SimpleDateFormat("yyyyMMdd");
+
+                                    if(!sdfNow.format(date).equals(sf.getString("loginDate","1"))){
+                                        Log.d("login: ","loginDate 가지고 있지만 하루가 지남");
+
+                                        storageSharedPre(response.body().id + "", response.body().user_name, response.body().check_court
+                                                , response.body().group_id, response.body().check_id, response.body().id_token, response.body().refreshToken);
+
+                                        Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }else{
+                                        Log.d("login: ","loginDate 가지고 있고 같은 날임");
+                                        // check user_name, check_id
+                                        if(response.body().user_name.equals(sf.getString("user_name","1"))){
+                                            editor.putString("id", response.body().id+"");
+                                            editor.putString("check_court", response.body().check_court);
+                                            editor.putString("group_id", response.body().group_id);
+                                            editor.putString("id_token", response.body().id_token);
+                                            editor.putString("refreshToken", response.body().refreshToken);
+                                            editor.commit();
+
+                                            Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                                            startActivity(intent);
+                                            finish();
+                                        }else{
+                                            Toast.makeText(LoginActivity.this, "Not correct user name",Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                                }
+                                else{
+                                    Log.d("login: ","loginDate 가지고 있지 않음");
+
+                                    storageSharedPre(response.body().id + "", response.body().user_name, response.body().check_court
+                                            , response.body().group_id, response.body().check_id, response.body().id_token, response.body().refreshToken);
+
+                                    Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
                             }
                         } else {
                             Toast.makeText(getApplicationContext(), "Please enter the correct information", Toast.LENGTH_SHORT).show();
@@ -114,14 +155,12 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-
     // storage sharedPreferences
     public void storageSharedPre(String id, String user_name, String check_court
             , String group_id, String check_id, String id_token, String refreshToken) {
         SharedPreferences sf = getSharedPreferences("asset", 0);
         SharedPreferences.Editor editor = sf.edit();
 
-        Intent intent = getIntent();
         editor.putString("id", id);
         editor.putString("user_name", user_name);
         editor.putString("check_court", check_court);
@@ -129,6 +168,12 @@ public class LoginActivity extends AppCompatActivity {
         editor.putString("check_id", check_id);
         editor.putString("id_token", id_token);
         editor.putString("refreshToken", refreshToken);
+        // currentTime
+        long now = System.currentTimeMillis();
+        Date date = new Date(now);
+        SimpleDateFormat sdfNow = new SimpleDateFormat("yyyyMMdd");
+        editor.putString("loginDate", sdfNow.format(date));
+
         editor.commit();
     }
 
