@@ -32,13 +32,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="2">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Asset Number:"
                 android:gravity="right"
-                android:textSize="15dp"
-                android:textColor="#00aaff"/>
+                android:text="Asset Number:"
+                android:textColor="#00aaff"
+                android:textSize="15dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -69,6 +70,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/assetNum"
                 android:textSize="15dp"
+                android:layout_marginLeft="12dp"
                 android:textColor="#00aaff"/>
 
             <TextView
@@ -76,12 +78,14 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/assetName"
                 android:textSize="15dp"
+                android:layout_marginLeft="12dp"
                 android:textColor="#00aaff"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/assetOrgan"
+                android:layout_marginLeft="12dp"
                 android:textSize="15dp"
                 android:textColor="#00aaff"/>
         </LinearLayout>
@@ -93,7 +97,7 @@
         android:layout_centerInParent="true"
         android:id="@+id/blueLine"
         android:background="#00aaff"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginRight="15dp"
         android:layout_below="@+id/assetText"/>
 
@@ -112,11 +116,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
-        android:lines="14"
+        android:lines="8"
         android:gravity="top"
         android:id="@+id/textMsg"
         android:hint="NOTICE:"
-        android:textSize="10dp"
+        android:textSize="30dp"
         android:padding="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"

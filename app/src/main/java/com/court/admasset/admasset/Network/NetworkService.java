@@ -12,6 +12,8 @@ import com.court.admasset.admasset.Model.ScanInfoResult;
 import com.court.admasset.admasset.Model.GetReportInfo;
 import com.court.admasset.admasset.Model.GetReportInfoResult;
 import com.court.admasset.admasset.Model.SearchAssetResult;
+import com.court.admasset.admasset.Model.SendMsgInfo;
+import com.court.admasset.admasset.Model.SendMsgResult;
 
 import java.util.Map;
 
@@ -54,4 +56,11 @@ public interface NetworkService {
     Call<SearchAssetResult> getSearchAssetResult(
             @HeaderMap Map<String, String> headers,
             @Body GetReportInfo getReportInfo);
+
+    @POST("/api/asset/notice")
+    Call<SendMsgResult> getSendMsgResult(
+            @HeaderMap Map<String,String> headers,
+            @Body SendMsgInfo sendMsgInfo);
+
+
 }

@@ -20,29 +20,25 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolders> {
     private View.OnClickListener clickListener;
     private Context context;
     private View view;
-    private int flag;
+    int i = 0;
     int prepositon;
 
     //    , View.OnClickListener clickListener
-    public RecyclerViewAdapter(Context context, ArrayList<CheckedListResult.CheckedData> itemdatas,View.OnClickListener clickListener,int flag) {
+    public RecyclerViewAdapter(Context context, ArrayList<CheckedListResult.CheckedData> itemdatas, View.OnClickListener clickListener) {
         this.context = context;
         this.itemdatas = itemdatas;
         this.clickListener = clickListener;
-        this.flag = flag;
     }
 
     @Override
     public MyViewHolders onCreateViewHolder(ViewGroup parent, int viewType) {
-        if(flag ==1){
+
+        if (itemdatas.get(i).samecourt == 1) {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_recyclerview_item, parent, false);
+        } else {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_recyclerview_item_red, parent, false);
         }
-        else {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_recyclerview_item, parent, false);
-
-
-
-        }
-
+        ++i;
         MyViewHolders viewHolder = new MyViewHolders(view);             //커스텀 뷰홀더 객체 생성
         view.setOnClickListener(clickListener);// 정의된 클릭이벤트를 달아준다
         return viewHolder;
@@ -72,28 +68,26 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolders> {
     }
 
 
-
-
-
-@Override
-public int getItemCount(){
-        if(itemdatas==null)
-        Log.v("TAG","null list");
+    @Override
+    public int getItemCount() {
+        if (itemdatas == null)
+            Log.v("TAG", "null list");
         else
-        Log.d("TAG","getItemCount: list DATA-----"+itemdatas.size());
+            Log.d("TAG", "getItemCount: list DATA-----" + itemdatas.size());
 
         //**Here I'm getting Null Pointer exception**
-        return itemdatas==null?0:itemdatas.size();
+        return itemdatas == null ? 0 : itemdatas.size();
 
-        }
-public Object getItem(int position){
+    }
+
+    public Object getItem(int position) {
         return itemdatas.get(position);
-        }
+    }
 
-@Override
-public long getItemId(int position){
+    @Override
+    public long getItemId(int position) {
         return position;
-        }
+    }
 
 
-        }
+}

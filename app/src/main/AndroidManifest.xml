@@ -36,7 +36,8 @@
         <activity android:name=".SummaryActivity" />
         <activity android:name=".RecyclerViewActivity" />
         <activity android:name=".BarcodeReaderActivity" />
-        <activity android:name=".SearchAssetListActivity"></activity>
+        <activity android:name=".SearchAssetListActivity"/>
+        <activity android:name=".NotFoundDialogActivity"/>
     </application>
 
 </manifest>

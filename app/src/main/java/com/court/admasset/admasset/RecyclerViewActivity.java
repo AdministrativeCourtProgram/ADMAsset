@@ -41,6 +41,8 @@ public class RecyclerViewActivity extends AppCompatActivity {
     private NotFoundDialogActivity notfoundDialg;
     private Map<String, String> map;
     private int flag;
+    private int i;
+    private int count;
 
     Intent intent;
 
@@ -75,9 +77,11 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
         barcode_result = intent.getStringExtra("status");
         if(barcode_result.equals("Asset data duplicated.")) {
+            Log.v("TAG","이 데이터는 겹칩니다.");
             callDuplicateDialog();
         }
-        if(barcode_result.equals("Not Found")){
+        if(barcode_result.equals("Asset data not found.")){
+            Log.v("TAG","이 데이터는 없어요");
             callNotFoundDialog();
         }
         Log.v("TAG","barcode_result" +barcode_result);
@@ -111,14 +115,11 @@ public class RecyclerViewActivity extends AppCompatActivity {
             public void onResponse(Call<CheckedListResult> call, Response<CheckedListResult> response) {
 //                Toast.makeText(RecyclerViewActivity.this, "통신성공123", Toast.LENGTH_SHORT).show();
                 if(response.isSuccessful()) {
-
                     if(response.body().status != null) {
                         Toast.makeText(RecyclerViewActivity.this, "통신성공", Toast.LENGTH_SHORT).show();
                         itemdata = response.body().result;
-                        flag = response.body().result.get(0).samecourt;
-                        adapter = new RecyclerViewAdapter(getApplicationContext(), itemdata, clickEvent,flag);
+                        adapter = new RecyclerViewAdapter(getApplicationContext(), itemdata, clickEvent);
                         reView.setAdapter(adapter);
-
                     }
                     else {
                         ApplicationController.showToast(getApplication(), "데이터 가져오기 실패");
@@ -130,17 +131,18 @@ public class RecyclerViewActivity extends AppCompatActivity {
             public void onFailure(Call<CheckedListResult> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "통신 실패", Toast.LENGTH_SHORT).show();
             }
-
-
             View.OnClickListener clickEvent = new View.OnClickListener() {
                 public void onClick(View v) {
+                    Log.v("TAG", "evnent!!!!!!");
                     final int itemPosition = reView.getChildLayoutPosition(v);
-                    if(flag ==0 ) {
+                    if (itemdata.get(itemPosition).samecourt == 0) {
                         Intent intent = new Intent(RecyclerViewActivity.this, SendMsgActivity.class);
+                        intent.putExtra("asset_no",itemdata.get(itemPosition).asset_no);
+                        intent.putExtra("asset_name",itemdata.get(itemPosition).asset_name);
+                        intent.putExtra("organization",itemdata.get(itemPosition).organization);
                         startActivity(intent);
+                    }
                 }
-                }
-
             };
         });
     }
@@ -158,7 +160,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
     public void callNotFoundDialog() {
         notfoundDialg = new NotFoundDialogActivity(this);
         notfoundDialg.show();
-        duplicateDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+        notfoundDialg.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialog) {
 

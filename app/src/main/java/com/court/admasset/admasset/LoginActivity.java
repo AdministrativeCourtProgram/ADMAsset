@@ -55,8 +55,8 @@ public class LoginActivity extends AppCompatActivity {
 
         service = ApplicationController.getInstance().getNetworkService();
 
-        Log.v("TAG", "네트워크서비스 instance값 확인" + ApplicationController.getInstance());
-        Log.v("TAG", "네트워크서비스 networkService값 확인" + ApplicationController.getInstance().getNetworkService());
+//        Log.v("TAG", "네트워크서비스 instance값 확인" + ApplicationController.getInstance());
+//        Log.v("TAG", "네트워크서비스 networkService값 확인" + ApplicationController.getInstance().getNetworkService());
 
     }
 

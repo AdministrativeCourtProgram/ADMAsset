@@ -4,75 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/maincolor"
+    android:background="@drawable/group"
     tools:context=".LoginActivity">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
         android:gravity="center"
-        android:layout_centerInParent="true"
         android:orientation="vertical">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingEnd="5dp"
-            android:src="@drawable/adm_asset"/>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingEnd="5dp"
-            android:layout_marginTop="15dp"
-            android:src="@drawable/year"/>
-
 
         <EditText
             android:id="@+id/userName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
             android:layout_weight="8"
             android:background="@drawable/rectangle"
-            android:drawableLeft="@drawable/group1"
+            android:drawableLeft="@drawable/username_icon"
             android:fontFamily="AppleSDGothicNeo-UltraLight"
             android:hint="   Username"
             android:paddingStart="17dp"
-            android:singleLine="true"
+            android:layout_marginBottom="12dp"
+            android:selectAllOnFocus="true"
+            android:singleLine="false"
             android:textColor="#000"
-            android:textColorHint="#606060" />
+            android:textColorHint="#606060"
+            android:textSize="20dp"
+            />
 
         <EditText
-            android:layout_marginTop="10dp"
             android:id="@+id/userPwd"
             android:layout_width="wrap_content"
-            android:layout_weight="8"
-            android:paddingStart="17dp"
-            android:fontFamily="AppleSDGothicNeo-UltraLight"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ellipse"
+            android:layout_weight="8"
             android:background="@drawable/rectangle"
+            android:drawableLeft="@drawable/password_icon"
+            android:fontFamily="AppleSDGothicNeo-UltraLight"
             android:hint="   Password"
-            android:singleLine="true"
-            android:layout_marginBottom="20dp"
-            android:textColor="#000"
             android:inputType="textPassword"
+            android:layout_marginBottom="15dp"
+            android:paddingStart="17dp"
+            android:singleLine="true"
+            android:textColor="#000"
             android:textColorHint="#606060"
-            />
+            android:textSize="20dp" />
+
         <TextView
             android:id="@+id/loginbtn"
             android:layout_width="wrap_content"
-            android:layout_weight="8"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="AppleSDGothicNeo-UltraLight"
+            android:layout_marginTop="5dp"
+            android:layout_weight="8"
             android:background="@drawable/rectangle"
-            android:textAlignment="center"
-            android:padding="5dp"
+            android:fontFamily="AppleSDGothicNeo-UltraLight"
             android:text="Login"
+            android:textAlignment="center"
             android:textColor="#000"
-            >
+            android:textSize="20dp">
+
         </TextView>
 
     </LinearLayout>
