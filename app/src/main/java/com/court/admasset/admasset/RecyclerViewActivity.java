@@ -40,7 +40,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
     private DuplicateDialogActivity duplicateDialog;
     private NotFoundDialogActivity notfoundDialg;
     private Map<String, String> map;
-    private int flag;
+    private int flag=1;
     private int i;
     private int count;
 
@@ -134,14 +134,15 @@ public class RecyclerViewActivity extends AppCompatActivity {
             View.OnClickListener clickEvent = new View.OnClickListener() {
                 public void onClick(View v) {
                     Log.v("TAG", "evnent!!!!!!");
-                    final int itemPosition = reView.getChildLayoutPosition(v);
-                    if (itemdata.get(itemPosition).samecourt == 0) {
-                        Intent intent = new Intent(RecyclerViewActivity.this, SendMsgActivity.class);
-                        intent.putExtra("asset_no",itemdata.get(itemPosition).asset_no);
-                        intent.putExtra("asset_name",itemdata.get(itemPosition).asset_name);
-                        intent.putExtra("organization",itemdata.get(itemPosition).organization);
-                        startActivity(intent);
-                    }
+//                    final int itemPosition = reView.getChildLayoutPosition(v);
+//                    if (itemdata.get(itemPosition).samecourt == 0) {
+//                        Intent intent = new Intent(RecyclerViewActivity.this, SendMsgActivity.class);
+//                        intent.putExtra("asset_no",itemdata.get(itemPosition).asset_no);
+//                        intent.putExtra("asset_name",itemdata.get(itemPosition).asset_name);
+//                        intent.putExtra("organization",itemdata.get(itemPosition).organization);
+//                        intent.putExtra("flag",flag);
+//                        startActivity(intent);
+//                    }
                 }
             };
         });

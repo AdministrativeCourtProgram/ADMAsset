@@ -2,6 +2,7 @@ package com.court.admasset.admasset;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -36,12 +37,12 @@ public class BarcodeReaderActivity extends AppCompatActivity {
     NetworkService service;
     private ScanInfo scanInfo;
     private Map<String, String> map;
-
+    private Context context;
     private SharedPreferences sf;
-
+    private int flag=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        context = this;
         super.onCreate(savedInstanceState);
 
         sf = getSharedPreferences("asset",0);
@@ -132,10 +133,24 @@ public class BarcodeReaderActivity extends AppCompatActivity {
                             if(response.body()!= null){
                                 Toast.makeText(getApplicationContext(),"succes: "+response.body().status,Toast.LENGTH_LONG).show();
 
+                                Log.v("TAG","Samecoutttttt"+response.body().result.get(0).samecourt);
+                                int i = response.body().result.get(0).samecourt;
+
+                                if(i==0){
+                                    Log.v("TAG","iiiiiiiiiiii");
+                                    Intent intent = new Intent(BarcodeReaderActivity.this,SendMsgActivity.class);
+                                    intent.putExtra("status", response.body().status);
+                                    intent.putExtra("result",response.body().result);
+                                    intent.putExtra("flag",flag);
+                                    startActivity(intent);
+
+                                }
+                                else {
+                                    Intent intent = new Intent(BarcodeReaderActivity.this, RecyclerViewActivity.class);
+                                    intent.putExtra("status", response.body().status);
+                                    startActivity(intent);
+                                }
                                 finish();
-                                Intent intent = new Intent(BarcodeReaderActivity.this,RecyclerViewActivity.class);
-                                intent.putExtra("status", response.body().status);
-                                startActivity(intent);
                             }
                         }else{
                             try {

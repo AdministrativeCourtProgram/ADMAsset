@@ -107,42 +107,46 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="3"
-        android:orientation="horizontal">
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1.5"/>
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1.5"/>-->
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="show checked asset"
             android:id="@+id/showchecked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_weight="0.8"
             android:background="@color/maincolor"
             android:fontFamily="AppleSDGothicNeo-UltraLight"
+            android:text="show checked asset"
             android:textAllCaps="false"
             android:textColor="#ffffff"
-            android:layout_weight="3"/>
+            android:textSize="22dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
+        <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1"/>-->
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="show waiting to check"
+            android:id="@+id/showWaiting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
             android:background="@color/maincolor"
+            android:fontFamily="AppleSDGothicNeo-UltraLight"
+            android:text="show waiting to check"
             android:textAllCaps="false"
             android:textColor="#ffffff"
-            android:fontFamily="AppleSDGothicNeo-UltraLight"
-            android:id="@+id/showWaiting"
-            android:layout_weight="3"/>
+            android:textSize="22dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1.5"/>
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1.5"/>-->
 
     </LinearLayout>
 

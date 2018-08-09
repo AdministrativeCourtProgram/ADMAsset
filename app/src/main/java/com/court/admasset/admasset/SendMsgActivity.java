@@ -11,12 +11,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.court.admasset.admasset.Model.ScanInfoResult;
+import com.court.admasset.admasset.Model.SearchAssetResult;
 import com.court.admasset.admasset.Model.SendMsgInfo;
 import com.court.admasset.admasset.Model.SendMsgResult;
 import com.court.admasset.admasset.Network.ApplicationController;
 import com.court.admasset.admasset.Network.NetworkService;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,11 +44,12 @@ public class SendMsgActivity extends AppCompatActivity {
     private Map<String, String> map;
     private Button sendMsgBtn;
     private SendMsgInfo sendMsgInfo;
+    private int flag;
 
     NetworkService service;
 
     private SharedPreferences sf;
-
+    private ArrayList<ScanInfoResult.ScanData> scanResult=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,10 +57,21 @@ public class SendMsgActivity extends AppCompatActivity {
 
 
         intent = getIntent();
-        asset_no = intent.getStringExtra("asset_no");
-        asset_name = intent.getStringExtra("asset_name");
-        organization = intent.getStringExtra("organization");
+//        flag = intent.getIntExtra("flag",1);
+//        if(flag == 0) {
+            scanResult = (ArrayList<ScanInfoResult.ScanData>) intent.getSerializableExtra("result");
 
+            asset_no = scanResult.get(0).asset_no;
+            asset_name = scanResult.get(0).asset_name;
+            organization = scanResult.get(0).organization;
+//        }
+//        else{
+//            asset_no = intent.getStringExtra(asset_no);
+//            asset_name = intent.getStringExtra(asset_name);
+//            organization = intent.getStringExtra(organization);
+//        }
+
+        Log.v("TAG","1111111111111"+asset_no+asset_name+organization);
         InitView();
         initClickEvent();
 

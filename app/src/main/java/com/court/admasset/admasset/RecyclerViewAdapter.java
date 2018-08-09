@@ -54,7 +54,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolders> {
         holder.re_no.setText(itemdatas.get(position).asset_no);
         holder.re_name.setText(itemdatas.get(position).asset_name);
         holder.re_organization.setText(itemdatas.get(position).organization);
-
     }
 
 
