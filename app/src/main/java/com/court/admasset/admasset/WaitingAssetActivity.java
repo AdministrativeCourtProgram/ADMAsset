@@ -1,14 +1,20 @@
 package com.court.admasset.admasset;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDialog;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -90,6 +96,7 @@ public class WaitingAssetActivity extends AppCompatActivity {
                         intent.putExtra("flag","waiting");
                         intent.putExtra("searchAssetList", response.body().result);
                         startActivity(intent);
+
                     }
                 }else{
                     Toast.makeText(WaitingAssetActivity.this, "실패", Toast.LENGTH_LONG).show();
@@ -115,7 +122,7 @@ public class WaitingAssetActivity extends AppCompatActivity {
                         for(int i = 0; i<response.body().result.size(); i++){
                             aa.add(response.body().result.get(i).floor_name);
                         }
-                        spinner1.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
+                        spinner2.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
                     }
                 }else{
                     Toast.makeText(WaitingAssetActivity.this,"실패",Toast.LENGTH_LONG).show();
@@ -139,7 +146,7 @@ public class WaitingAssetActivity extends AppCompatActivity {
                         for(int i = 0; i<response.body().result.size(); i++){
                             aa.add(response.body().result.get(i).room_name);
                         }
-                        spinner2.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
+                        spinner3.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
                     }
                 }else{
                     Toast.makeText(WaitingAssetActivity.this,"실패",Toast.LENGTH_LONG).show();
@@ -163,7 +170,7 @@ public class WaitingAssetActivity extends AppCompatActivity {
                         for(int i = 0; i<response.body().result.size(); i++){
                             aa.add(response.body().result.get(i).c_name);
                         }
-                        spinner3.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
+                        spinner1.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
                     }
                 }else{
                     Toast.makeText(WaitingAssetActivity.this,"실패",Toast.LENGTH_LONG).show();
@@ -175,4 +182,5 @@ public class WaitingAssetActivity extends AppCompatActivity {
             }
         });
     }
+
 }

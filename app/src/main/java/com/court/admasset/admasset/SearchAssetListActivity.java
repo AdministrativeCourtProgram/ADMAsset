@@ -1,12 +1,16 @@
 package com.court.admasset.admasset;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.widget.TextView;
@@ -29,7 +33,7 @@ public class SearchAssetListActivity extends AppCompatActivity {
 
     private TextView txtListSize;
     private RecyclerView reView;
-
+    private AppCompatDialog progressDialog;
     private SearchAssetListAdapter adapter;
     private ArrayList<SearchAssetResult.CheckedData> assetList = null;
 
@@ -37,6 +41,7 @@ public class SearchAssetListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_asset_list);
+
 
         // ===== init ===== //
         txtListSize = (TextView)findViewById(R.id.txtListSize);
@@ -101,4 +106,7 @@ public class SearchAssetListActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
 }
