@@ -20,6 +20,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolders> {
     private View.OnClickListener clickListener;
     private Context context;
     private View view;
+
     int i = 0;
     int prepositon;
 
@@ -54,17 +55,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MyViewHolders> {
         holder.re_name.setText(itemdatas.get(position).asset_name);
         holder.re_organization.setText(itemdatas.get(position).organization);
 
-//        Log.v("TAG","preposition"+prepositon+"11111111"+position);
-//        if(prepositon == position) {
-//            holder.re_parentLayout.setBackgroundColor(Color.rgb(178, 204, 255));
-//        }
-//        prepositon +=1;
-//        holder.re_parentLayout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Log.d("TAG","onClick: clicked on"+itemdatas.get(position));
-//                Toast.makeText(context, (CharSequence) itemdatas.get(position),Toast.LENGTH_SHORT).show();
-//            }
     }
 
 

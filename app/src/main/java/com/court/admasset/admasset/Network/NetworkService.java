@@ -57,10 +57,14 @@ public interface NetworkService {
             @HeaderMap Map<String, String> headers,
             @Body GetReportInfo getReportInfo);
 
+
     @POST("/api/asset/notice")
     Call<SendMsgResult> getSendMsgResult(
             @HeaderMap Map<String,String> headers,
             @Body SendMsgInfo sendMsgInfo);
 
-
+    @POST("api/asset/getCheckedList")
+    Call<SearchAssetResult> getSearchAssetResult2(
+            @HeaderMap Map<String, String> headers,
+            @Body GetReportInfo getReportInfo);
 }

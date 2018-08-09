@@ -87,6 +87,7 @@ public class WaitingAssetActivity extends AppCompatActivity {
                 if(response.isSuccessful()){
                     if(response.body()!=null){
                         Intent intent = new Intent(WaitingAssetActivity.this, SearchAssetListActivity.class);
+                        intent.putExtra("flag","waiting");
                         intent.putExtra("searchAssetList", response.body().result);
                         startActivity(intent);
                     }
