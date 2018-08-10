@@ -139,13 +139,13 @@ public class SummaryActivity extends AppCompatActivity {
                         allNum.setText(response.body().result.get(0).flag_count.toString());
                     }
                 }else{
-                    Toast.makeText(SummaryActivity.this, "통신실패", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SummaryActivity.this, "fail", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<GetReportInfoResult> call, Throwable t) {
-                Toast.makeText(SummaryActivity.this, "완전 통신실패", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SummaryActivity.this, "fail", Toast.LENGTH_SHORT).show();
             }
         });
     }
