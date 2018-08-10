@@ -44,6 +44,7 @@ public class WaitingAssetActivity extends AppCompatActivity {
     private String check_court;
     private NetworkService service;
     private SharedPreferences sf;
+    private AppCompatDialog progressDialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -74,6 +75,9 @@ public class WaitingAssetActivity extends AppCompatActivity {
                 //spinner select
                 // spinner1.getSelectedItem().toString(), spinner2.getSelectedItem().toString(), spinner3.getSelectedItem().toString()
 
+                // call loading dialog
+                progressON(WaitingAssetActivity.this, null);
+
                 callSearchList();
             }
         });
@@ -96,7 +100,7 @@ public class WaitingAssetActivity extends AppCompatActivity {
                         intent.putExtra("flag","waiting");
                         intent.putExtra("searchAssetList", response.body().result);
                         startActivity(intent);
-
+                        progressOFF();
                     }
                 }else{
                     Toast.makeText(WaitingAssetActivity.this, "실패", Toast.LENGTH_LONG).show();
@@ -183,4 +187,40 @@ public class WaitingAssetActivity extends AppCompatActivity {
         });
     }
 
+    //============ Loading dialog ============//
+    public void progressON(Activity activity, String message){
+        if(activity == null || activity.isFinishing()){
+            return;
+        }
+        if(progressDialog != null && progressDialog.isShowing()){
+            progressSET(message);
+        }else{
+            progressDialog = new AppCompatDialog(activity);
+            progressDialog.setCancelable(false);
+            progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+            progressDialog.setContentView(R.layout.progress_loading);
+            progressDialog.show();
+        }
+        TextView tv_progress_message = (TextView) progressDialog.findViewById(R.id.tv_progress_message);
+        if (!TextUtils.isEmpty(message)) {
+            tv_progress_message.setText(message);
+        }
+    }
+    public void progressSET(String message) {
+        if (progressDialog == null || !progressDialog.isShowing())  {
+            return;
+        }
+
+        TextView tv_progress_message = (TextView) progressDialog.findViewById(R.id.tv_progress_message);
+        if (!TextUtils.isEmpty(message)) {
+            tv_progress_message.setText(message);
+        }
+    }
+
+    public void progressOFF() {
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        }
+    }
+    //============// Loading dialog ============//
 }
