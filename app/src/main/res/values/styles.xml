@@ -16,4 +16,12 @@
     <style name="SplashTheme" parent="@android:style/Theme.Light.NoTitleBar">
         <item name="android:windowBackground">@drawable/admasset</item>
     </style>
+
+    <!-- Line -->
+    <style name="LineVer">
+        <item name="android:layout_width">1.8dp</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:background">?android:attr/listDivider</item>
+        <item name="android:colorBackground">#7FA2C9</item>
+    </style>
 </resources>

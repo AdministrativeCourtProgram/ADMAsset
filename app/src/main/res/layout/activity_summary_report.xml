@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -31,130 +32,172 @@
     </LinearLayout>
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_weight="2"
         android:id="@+id/relativeSize"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3">
 
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            app:srcCompat="@drawable/line_rectangle" />
+        <TextView
+            android:id="@+id/tt1"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_height="162dp"
             android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/tt2"
+            android:layout_toRightOf="@+id/tt1"
+            android:background="@drawable/linearlayoutborder"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.1"/>
+
+                <TextView
                     android:id="@+id/checked4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="AppleSDGothicNeo-UltraLight"
+                    android:layout_weight="0.1"
                     android:text="Checked"
                     android:textColor="#000"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp" />
+
                 <TextView
                     android:id="@+id/checkedNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_weight="0.6"
                     android:fontFamily="AppleSDGothicNeo-UltraLight"
                     android:textColor="#000"
                     android:textSize="60sp" />
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.2"/>
+            </LinearLayout>
+
+            <View style="@style/LineVer" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"/>
+
+                <TextView
                     android:id="@+id/allset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="AppleSDGothicNeo-UltraLight"
                     android:text="All asset"
+                    android:layout_weight="0.1"
                     android:textColor="#000"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp" />
+
                 <TextView
                     android:id="@+id/allNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.8"
                     android:fontFamily="AppleSDGothicNeo-UltraLight"
                     android:textColor="#000"
-                    android:layout_gravity="center"
                     android:textSize="60sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"/>
             </LinearLayout>
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/tt2"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true" />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:id="@+id/lili"
+        android:layout_weight="3.5">
 
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_weight="1.5"/>-->
-        <Button
-            android:id="@+id/showchecked"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:layout_weight="0.6"
-            android:background="@color/maincolor"
-            android:fontFamily="AppleSDGothicNeo-UltraLight"
-            android:text="show checked asset"
-            android:textAllCaps="false"
-            android:textColor="#ffffff"
-            android:textSize="22dp" />
+            android:layout_weight="0.2"/>
 
-        <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_weight="1"/>-->
-        <Button
-            android:id="@+id/showWaiting"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.6"
-            android:background="@color/maincolor"
-            android:fontFamily="AppleSDGothicNeo-UltraLight"
-            android:text="show waiting to check"
-            android:textAllCaps="false"
-            android:textColor="#ffffff"
-            android:textSize="22dp" />
+            android:layout_weight="3.2"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_weight="1.5"/>-->
+            <Button
+                android:id="@+id/showchecked"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:background="@color/maincolor"
+                android:fontFamily="AppleSDGothicNeo-UltraLight"
+                android:text="show checked asset"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="22dp" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"/>
+
+            <Button
+                android:id="@+id/showWaiting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:background="@color/maincolor"
+                android:fontFamily="AppleSDGothicNeo-UltraLight"
+                android:text="show waiting to check"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="22dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"/>
     </LinearLayout>
-
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="2" />
+        android:layout_weight="1" />
 
     <ImageButton
         android:id="@+id/homeBtn"
