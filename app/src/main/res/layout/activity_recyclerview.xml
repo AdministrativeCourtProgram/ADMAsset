@@ -123,6 +123,8 @@
         android:id="@+id/scanBtn"
         android:text="scan_code"
         android:layout_weight="0.2"
+        android:textColor="#FFF"
+        android:background="@color/maincolor"
         android:layout_gravity="center_horizontal"/>
 
     <TextView

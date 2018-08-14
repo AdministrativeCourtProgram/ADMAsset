@@ -13,6 +13,7 @@
         android:id="@+id/IndexTextView"
         android:textColor="#000000"
         android:gravity="center"
+        android:textSize="18dp"
         android:layout_weight="1" />
 
     <TextView
@@ -20,8 +21,9 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/asset_noTextView"
-        android:textColor="#666666"
+        android:textColor="#000"
         android:gravity="center"
+        android:textSize="18dp"
         android:layout_weight="3" />
 
     <TextView
@@ -29,8 +31,8 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/asset_nameTextView"
-        android:textSize="16dp"
-        android:textColor="#666666"
+        android:textSize="18dp"
+        android:textColor="#000"
         android:gravity="center"
         android:layout_weight="3" />
 
@@ -39,10 +41,12 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/organizationTextView"
-        android:textSize="16dp"
-        android:textColor="#666666"
+        android:textSize="18dp"
+        android:textColor="#000"
         android:gravity="center"
-        android:layout_weight="3" />
+        android:layout_weight="3"
+
+        />
 
 
     <!--<View-->

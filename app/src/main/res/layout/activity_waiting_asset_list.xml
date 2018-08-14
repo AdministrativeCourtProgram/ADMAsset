@@ -111,13 +111,13 @@
             android:layout_height="wrap_content"
             android:prompt="@string/select_room" />
 
-        <!--<ImageButton-->
-            <!--android:id="@+id/homeBtn"-->
-            <!--android:layout_width="30dp"-->
-            <!--android:layout_height="30dp"-->
-            <!--android:layout_gravity="center"-->
-            <!--android:background="@android:color/transparent"-->
-            <!--android:src="@drawable/home" />-->
+        <ImageButton
+            android:id="@+id/homeBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:src="@drawable/home" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -128,8 +128,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:background="@color/maincolor"
+            android:textColor="#FFFF"
             android:layout_above="@id/homeBtn"
-            android:text="search Asset" />
+            android:text="search Asset"
+            />
+
 
         <TextView
             android:layout_width="match_parent"
