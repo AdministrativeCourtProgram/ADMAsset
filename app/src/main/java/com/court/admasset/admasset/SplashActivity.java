@@ -46,11 +46,11 @@ public class SplashActivity extends Activity {
                 startActivity(new Intent(this, LoginActivity.class));
                 finish();
             }else {
-                Toast.makeText(SplashActivity.this, "권한 요청을 거부했습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SplashActivity.this, "Camera permission denied", Toast.LENGTH_SHORT).show();
 
                 new AlertDialog.Builder(this)
                         .setTitle("Alert")
-                        .setMessage("권한이 거부됨. 사용을 원하면 설정에서 해당 권한을 직접 허용하십시오")
+                        .setMessage("Camera permissions are denied. If you want to use them, allow them directly in the settings")
                         .setNegativeButton("Setting", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {

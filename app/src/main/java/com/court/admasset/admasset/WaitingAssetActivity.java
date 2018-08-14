@@ -103,13 +103,13 @@ public class WaitingAssetActivity extends AppCompatActivity {
                         progressOFF();
                     }
                 }else{
-                    Toast.makeText(WaitingAssetActivity.this, "실패", Toast.LENGTH_LONG).show();
+                    Toast.makeText(WaitingAssetActivity.this, "failed", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<SearchAssetResult> call, Throwable t) {
-                Toast.makeText(WaitingAssetActivity.this, "완전실패", Toast.LENGTH_LONG).show();
+                Toast.makeText(WaitingAssetActivity.this, "Network communication failure", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -129,12 +129,12 @@ public class WaitingAssetActivity extends AppCompatActivity {
                         spinner2.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
                     }
                 }else{
-                    Toast.makeText(WaitingAssetActivity.this,"실패",Toast.LENGTH_LONG).show();
+                    Toast.makeText(WaitingAssetActivity.this,"failed",Toast.LENGTH_LONG).show();
                 }
             }
             @Override
             public void onFailure(Call<MaindataFloorResult> call, Throwable t) {
-                Toast.makeText(WaitingAssetActivity.this,"실패2",Toast.LENGTH_LONG).show();
+                Toast.makeText(WaitingAssetActivity.this,"Network communication failure",Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -153,12 +153,12 @@ public class WaitingAssetActivity extends AppCompatActivity {
                         spinner3.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
                     }
                 }else{
-                    Toast.makeText(WaitingAssetActivity.this,"실패",Toast.LENGTH_LONG).show();
+                    Toast.makeText(WaitingAssetActivity.this,"failed",Toast.LENGTH_LONG).show();
                 }
             }
             @Override
             public void onFailure(Call<MaindataRoomResult> call, Throwable t) {
-                Toast.makeText(WaitingAssetActivity.this,"실패2",Toast.LENGTH_LONG).show();
+                Toast.makeText(WaitingAssetActivity.this,"Network communication failure",Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -177,12 +177,12 @@ public class WaitingAssetActivity extends AppCompatActivity {
                         spinner1.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
                     }
                 }else{
-                    Toast.makeText(WaitingAssetActivity.this,"실패",Toast.LENGTH_LONG).show();
+                    Toast.makeText(WaitingAssetActivity.this,"failed",Toast.LENGTH_LONG).show();
                 }
             }
             @Override
             public void onFailure(Call<MaindataWorkgroupResult> call, Throwable t) {
-                Toast.makeText(WaitingAssetActivity.this,"실패2",Toast.LENGTH_LONG).show();
+                Toast.makeText(WaitingAssetActivity.this,"Network communication failure",Toast.LENGTH_LONG).show();
             }
         });
     }

@@ -75,7 +75,7 @@ public class MenuActivity extends AppCompatActivity {
         }
 
         this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Pressing Back once again will log  out", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Pressing Back once again will log out", Toast.LENGTH_SHORT).show();
 
         new Handler().postDelayed(new Runnable() {
             @Override

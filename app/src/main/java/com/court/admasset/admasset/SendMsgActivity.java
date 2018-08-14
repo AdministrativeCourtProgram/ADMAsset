@@ -125,12 +125,12 @@ public class SendMsgActivity extends AppCompatActivity {
                 sendMsgResultCall.enqueue(new Callback<SendMsgResult>() {
                     @Override
                     public void onResponse(Call<SendMsgResult> call, Response<SendMsgResult> response) {
-                        Toast.makeText(SendMsgActivity.this, "통신성공", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SendMsgActivity.this, "Network communication success", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onFailure(Call<SendMsgResult> call, Throwable t) {
-                        Toast.makeText(SendMsgActivity.this, "통신실패", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SendMsgActivity.this, "Network communication failure", Toast.LENGTH_SHORT).show();
                     }
                 });
 

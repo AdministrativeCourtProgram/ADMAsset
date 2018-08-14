@@ -106,7 +106,7 @@ public class SearchAssetListActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<SearchAssetResult> call, Throwable t) {
-                Toast.makeText(SearchAssetListActivity.this, "fail", Toast.LENGTH_LONG).show();
+                Toast.makeText(SearchAssetListActivity.this, "Network communication failure", Toast.LENGTH_LONG).show();
             }
         });
     }

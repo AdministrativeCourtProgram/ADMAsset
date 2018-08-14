@@ -145,7 +145,7 @@ public class SummaryActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<GetReportInfoResult> call, Throwable t) {
-                Toast.makeText(SummaryActivity.this, "fail", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SummaryActivity.this, "Network communication failure", Toast.LENGTH_SHORT).show();
             }
         });
     }
