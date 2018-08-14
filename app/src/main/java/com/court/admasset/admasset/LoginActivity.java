@@ -101,8 +101,9 @@ public class LoginActivity extends AppCompatActivity {
                                     Log.d("AAAA","3,"+sdfNow.format(date));
 
                                     if(!sdfNow.format(date).equals(sf.getString("loginDate","1"))
-                                            && !sf.getString("user_name","1").equals(response.body().user_name)){
+                                            || !sf.getString("user_name","1").equals(response.body().user_name)){
 
+                                        Log.d("AAAA","4"+"not equals"+response.body().user_name+sf.getString("user_name","1"));
                                         storageSharedPre(response.body().id + "", response.body().user_name, response.body().check_court
                                                 , response.body().group_id, response.body().check_id, response.body().id_token, response.body().refreshToken);
 
@@ -110,6 +111,8 @@ public class LoginActivity extends AppCompatActivity {
                                         startActivity(intent);
                                         finish();
                                     }else{
+                                        Log.d("AAAA","4"+"equals"+response.body().user_name+sf.getString("user_name","1"));
+                                        Log.d("AAAA","5"+"equals"+response.body().check_id+" , "+sf.getString("check_id","1"));
                                         editor.putString("id", response.body().id+"");
                                         editor.putString("check_court", response.body().check_court);
                                         editor.putString("group_id", response.body().group_id);
