@@ -51,9 +51,6 @@ public class LoginActivity extends AppCompatActivity {
         userName = (EditText) findViewById(R.id.userName);
         userPwd = (EditText) findViewById(R.id.userPwd);
         loginbtn = (TextView) findViewById(R.id.loginbtn);
-
-        userName.setSelection(userName.length()/2);
-
     }
 
 
@@ -92,15 +89,19 @@ public class LoginActivity extends AppCompatActivity {
 
                             if (response.body().result) {
                                 if(getSharedPreferences("asset",MODE_PRIVATE).getString("loginDate","1") != "1"){
+                                    Log.d("AAAA","1,"+getSharedPreferences("asset",MODE_PRIVATE).getString("loginDate","1"));
                                     sf = getSharedPreferences("asset",MODE_PRIVATE);
+                                    Log.d("AAAA","2,"+sf.getString("loginDate","2"));
                                     SharedPreferences.Editor editor = sf.edit();
 
                                     // check date
                                     long now = System.currentTimeMillis();
                                     Date date = new Date(now);
                                     SimpleDateFormat sdfNow = new SimpleDateFormat("yyyyMMdd");
+                                    Log.d("AAAA","3,"+sdfNow.format(date));
 
-                                    if(!sdfNow.format(date).equals(sf.getString("loginDate","1"))){
+                                    if(!sdfNow.format(date).equals(sf.getString("loginDate","1"))
+                                            && !sf.getString("user_name","1").equals(response.body().user_name)){
 
                                         storageSharedPre(response.body().id + "", response.body().user_name, response.body().check_court
                                                 , response.body().group_id, response.body().check_id, response.body().id_token, response.body().refreshToken);
@@ -109,27 +110,16 @@ public class LoginActivity extends AppCompatActivity {
                                         startActivity(intent);
                                         finish();
                                     }else{
-                                        // check user_name, check_id
-                                        if(response.body().user_name.equals(sf.getString("user_name","1"))){
-                                            editor.putString("id", response.body().id+"");
-                                            editor.putString("check_court", response.body().check_court);
-                                            editor.putString("group_id", response.body().group_id);
-                                            editor.putString("id_token", response.body().id_token);
-                                            editor.putString("refreshToken", response.body().refreshToken);
-                                            editor.commit();
+                                        editor.putString("id", response.body().id+"");
+                                        editor.putString("check_court", response.body().check_court);
+                                        editor.putString("group_id", response.body().group_id);
+                                        editor.putString("id_token", response.body().id_token);
+                                        editor.putString("refreshToken", response.body().refreshToken);
+                                        editor.commit();
 
-                                            Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
-                                            startActivity(intent);
-                                            finish();
-                                        }else{
-                                            // Does not have Login date
-                                            storageSharedPre(response.body().id + "", response.body().user_name, response.body().check_court
-                                                    , response.body().group_id, response.body().check_id, response.body().id_token, response.body().refreshToken);
-
-                                            Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
-                                            startActivity(intent);
-                                            finish();
-                                        }
+                                        Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                                        startActivity(intent);
+                                        finish();
                                     }
                                 }
                                 else{
