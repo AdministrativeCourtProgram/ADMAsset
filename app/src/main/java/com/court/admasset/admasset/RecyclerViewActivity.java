@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.court.admasset.admasset.Model.CheckedListInfo;
@@ -63,6 +64,19 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
         // Get Barcode results
         intent = getIntent();
+
+        // ====== home Button ====== //
+        ImageButton homeBtn = (ImageButton)findViewById(R.id.homeBtn);
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent intent = new Intent(RecyclerViewActivity.this, MenuActivity.class);
+                Intent intent = new Intent(RecyclerViewActivity.this, MenuActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         // ====== scan Button ====== //
         Button scanBtn = (Button)findViewById(R.id.scanBtn);

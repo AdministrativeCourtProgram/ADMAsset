@@ -41,7 +41,7 @@
                 android:fontFamily="AppleSDGothicNeo-UltraLight"
                 android:hint="Username"
                 android:selectAllOnFocus="true"
-                android:singleLine="false"
+                android:singleLine="true"
                 android:textColor="#000"
                 android:textColorHint="#000"
                 android:textSize="20dp" />
