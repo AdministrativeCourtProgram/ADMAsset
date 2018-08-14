@@ -139,7 +139,8 @@ public class SummaryActivity extends AppCompatActivity {
                         allNum.setText(response.body().result.get(0).flag_count.toString());
                     }
                 }else{
-                    Toast.makeText(SummaryActivity.this, "fail", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SummaryActivity.this, "Failed to receive data", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
             }
 

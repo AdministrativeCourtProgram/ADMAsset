@@ -103,7 +103,7 @@ public class WaitingAssetActivity extends AppCompatActivity {
                         progressOFF();
                     }
                 }else{
-                    Toast.makeText(WaitingAssetActivity.this, "Get searchAsset failed", Toast.LENGTH_LONG).show();
+                    Toast.makeText(WaitingAssetActivity.this, "Failed to receive searchAsset data", Toast.LENGTH_LONG).show();
                     finish();
                 }
             }
@@ -130,7 +130,7 @@ public class WaitingAssetActivity extends AppCompatActivity {
                         spinner2.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
                     }
                 }else{
-                    Toast.makeText(WaitingAssetActivity.this,"Get floor data failed",Toast.LENGTH_LONG).show();
+                    Toast.makeText(WaitingAssetActivity.this,"Failed to receive floor data",Toast.LENGTH_LONG).show();
                     finish();
                 }
             }
@@ -155,7 +155,7 @@ public class WaitingAssetActivity extends AppCompatActivity {
                         spinner3.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
                     }
                 }else{
-                    Toast.makeText(WaitingAssetActivity.this,"Get room data failed",Toast.LENGTH_LONG).show();
+                    Toast.makeText(WaitingAssetActivity.this,"Failed to receive room data",Toast.LENGTH_LONG).show();
                     finish();
                 }
             }
@@ -180,7 +180,7 @@ public class WaitingAssetActivity extends AppCompatActivity {
                         spinner1.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
                     }
                 }else{
-                    Toast.makeText(WaitingAssetActivity.this,"Get Workgroup data failed",Toast.LENGTH_LONG).show();
+                    Toast.makeText(WaitingAssetActivity.this,"Failed to receive Workgroup data",Toast.LENGTH_LONG).show();
                     finish();
                 }
             }

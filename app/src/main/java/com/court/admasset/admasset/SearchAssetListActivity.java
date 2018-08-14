@@ -100,7 +100,8 @@ public class SearchAssetListActivity extends AppCompatActivity {
                         adapterConnect();
                     }
                 }else{
-                    Toast.makeText(SearchAssetListActivity.this, "fail", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SearchAssetListActivity.this, "Failed to receive Asset data", Toast.LENGTH_LONG).show();
+                    finish();
                 }
             }
 
