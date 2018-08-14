@@ -52,6 +52,8 @@ public class LoginActivity extends AppCompatActivity {
         userPwd = (EditText) findViewById(R.id.userPwd);
         loginbtn = (TextView) findViewById(R.id.loginbtn);
 
+        userName.setSelection(userName.length()/2);
+
     }
 
 
@@ -120,7 +122,13 @@ public class LoginActivity extends AppCompatActivity {
                                             startActivity(intent);
                                             finish();
                                         }else{
-                                            Toast.makeText(LoginActivity.this, "Not correct user name",Toast.LENGTH_LONG).show();
+                                            // Does not have Login date
+                                            storageSharedPre(response.body().id + "", response.body().user_name, response.body().check_court
+                                                    , response.body().group_id, response.body().check_id, response.body().id_token, response.body().refreshToken);
+
+                                            Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                                            startActivity(intent);
+                                            finish();
                                         }
                                     }
                                 }
