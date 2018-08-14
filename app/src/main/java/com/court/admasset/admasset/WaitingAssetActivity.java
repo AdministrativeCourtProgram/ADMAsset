@@ -63,7 +63,7 @@ public class WaitingAssetActivity extends AppCompatActivity {
 
         service = ApplicationController.getInstance().getNetworkService();
 
-        // 값 받아오기
+        // Get data(Floor, Room, Workgroup)
         initMaindataFloor();
         initMaindataRoom();
         initMaindataWorkgroup();
@@ -103,7 +103,8 @@ public class WaitingAssetActivity extends AppCompatActivity {
                         progressOFF();
                     }
                 }else{
-                    Toast.makeText(WaitingAssetActivity.this, "failed", Toast.LENGTH_LONG).show();
+                    Toast.makeText(WaitingAssetActivity.this, "Get searchAsset failed", Toast.LENGTH_LONG).show();
+                    finish();
                 }
             }
 
@@ -129,7 +130,8 @@ public class WaitingAssetActivity extends AppCompatActivity {
                         spinner2.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
                     }
                 }else{
-                    Toast.makeText(WaitingAssetActivity.this,"failed",Toast.LENGTH_LONG).show();
+                    Toast.makeText(WaitingAssetActivity.this,"Get floor data failed",Toast.LENGTH_LONG).show();
+                    finish();
                 }
             }
             @Override
@@ -153,7 +155,8 @@ public class WaitingAssetActivity extends AppCompatActivity {
                         spinner3.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
                     }
                 }else{
-                    Toast.makeText(WaitingAssetActivity.this,"failed",Toast.LENGTH_LONG).show();
+                    Toast.makeText(WaitingAssetActivity.this,"Get room data failed",Toast.LENGTH_LONG).show();
+                    finish();
                 }
             }
             @Override
@@ -177,7 +180,8 @@ public class WaitingAssetActivity extends AppCompatActivity {
                         spinner1.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
                     }
                 }else{
-                    Toast.makeText(WaitingAssetActivity.this,"failed",Toast.LENGTH_LONG).show();
+                    Toast.makeText(WaitingAssetActivity.this,"Get Workgroup data failed",Toast.LENGTH_LONG).show();
+                    finish();
                 }
             }
             @Override
