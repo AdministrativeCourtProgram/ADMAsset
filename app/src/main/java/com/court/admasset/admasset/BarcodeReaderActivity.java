@@ -40,6 +40,7 @@ public class BarcodeReaderActivity extends AppCompatActivity {
     private Context context;
     private SharedPreferences sf;
     private int flag=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         context = this;
@@ -59,25 +60,21 @@ public class BarcodeReaderActivity extends AppCompatActivity {
         map.put("Content-Type","application/json");
         map.put("Authorization","Bearer " + sf.getString("id_token","1"));
 
-        //String refreshToken = intent.getStringExtra("refreshToken");
-
-        Log.d("통신",scanInfo.id+","+scanInfo.user_name+","+scanInfo.check_court+","+scanInfo.group_id+","+scanInfo.check_id);
-
         service = ApplicationController.getInstance().getNetworkService();
 
-        // 카메라 권한 체크
+        // check camera permission
         checkCameraPermission();
 
     }
-    // 카메라 권한 체크
+    // check camera permission
     public void checkCameraPermission(){
         int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
 
-        // 권한 없음
+        // camera permission denied
         if(permissionCheck == PackageManager.PERMISSION_DENIED){
             new AlertDialog.Builder(this)
                     .setTitle("Alert")
-                    .setMessage("카메라 권한이 거부되어있어 사용을 원하면 설정에서 해당 권한을 직접 허용하십시오")
+                    .setMessage("If the camera permissions are denied and you want to use them, allow them directly in the settings")
                     .setNegativeButton("Setting", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -97,13 +94,13 @@ public class BarcodeReaderActivity extends AppCompatActivity {
                     .setCancelable(false)
                     .create()
                     .show();
-        }else{ // 권한 있음
-            //바코드 스캔
+        }else{ // camera permission acquisition
+            // barcode scan
             scanBarcode();
         }
     }
 
-    // ====================== 바코드 스캔 ====================== //
+    // ====================== barcode scan ====================== //
     public void scanBarcode(){
         scannerView = new ZXingScannerView(this);
         scannerView.setResultHandler(new ZXingScannerResultHandler());
@@ -112,15 +109,11 @@ public class BarcodeReaderActivity extends AppCompatActivity {
         scannerView.startCamera();
     }
 
-//    @Override
-//    public void onPause(){
-//        super.onPause();
-//    }
     class ZXingScannerResultHandler implements ZXingScannerView.ResultHandler {
         @Override
         public void handleResult(final Result result) {
             try{
-                // 숫자확인용
+                // Check numbers
                 Long.parseLong(result.getText());
 
                 scanInfo.asset_no  = result.getText();
@@ -131,19 +124,16 @@ public class BarcodeReaderActivity extends AppCompatActivity {
                     public void onResponse(Call<ScanInfoResult> call, Response<ScanInfoResult> response) {
                         if(response.isSuccessful()){
                             if(response.body()!= null){
-                                Toast.makeText(getApplicationContext(),"succes: "+response.body().status,Toast.LENGTH_LONG).show();
+                                //Toast.makeText(getApplicationContext(),"succes: "+response.body().status,Toast.LENGTH_LONG).show();
 
-                                Log.v("TAG","Samecoutttttt"+response.body().result.get(0).samecourt);
                                 int i = response.body().result.get(0).samecourt;
 
                                 if(i==0){
-                                    Log.v("TAG","iiiiiiiiiiii");
                                     Intent intent = new Intent(BarcodeReaderActivity.this,SendMsgActivity.class);
                                     intent.putExtra("status", response.body().status);
                                     intent.putExtra("result",response.body().result);
                                     intent.putExtra("flag",flag);
                                     startActivity(intent);
-
                                 }
                                 else {
                                     Intent intent = new Intent(BarcodeReaderActivity.this, RecyclerViewActivity.class);
@@ -158,16 +148,10 @@ public class BarcodeReaderActivity extends AppCompatActivity {
 
                                 Toast.makeText(getApplicationContext(),json.getString("status"),Toast.LENGTH_LONG).show();
                                 finish();
-//                                 Asset data duplicated or Asset data not found
+                                // Asset data duplicated or Asset data not found
                                 Intent intent = new Intent(BarcodeReaderActivity.this,RecyclerViewActivity.class);
-//                                intent.putExtra("status", response.body().status);
                                 intent.putExtra("status", json.getString("status"));
                                 startActivity(intent);
-
-//                                onDestroy();
-
-//                                setContentView(R.layout.activity_menu);
-//                                scannerView.stopCamera();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             } catch (IOException e) {
@@ -180,7 +164,7 @@ public class BarcodeReaderActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<ScanInfoResult> call, Throwable t) {
                         finish();
-                        Toast.makeText(getApplicationContext(), "통신실패", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Network communication failure", Toast.LENGTH_SHORT).show();
                     }
                 });
             }catch(NumberFormatException e){
