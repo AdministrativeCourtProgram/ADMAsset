@@ -10,6 +10,7 @@ public class MyViewHolders extends RecyclerView.ViewHolder {
     //recycler_viewHolder
 
     public TextView re_index, re_no, re_name, re_organization;
+    public TextView red_index,red_no,red_name,red_organization;
 //    public View re_samecourt;
     public LinearLayout re_parentLayout;
 
@@ -20,6 +21,13 @@ public class MyViewHolders extends RecyclerView.ViewHolder {
         re_name = (TextView) itemView.findViewById(R.id.asset_nameTextView);
         re_organization = (TextView) itemView.findViewById(R.id.organizationTextView);
         re_parentLayout = (LinearLayout) itemView.findViewById(R.id.parent_layout);
-//        re_samecourt =(View) itemView.findViewById(R.id.samecourtView);
+
+
+//        red_index = (TextView) itemView.findViewById(R.id.IndexTextView_red);
+//        red_no = (TextView) itemView.findViewById(R.id.asset_noTextView_red);
+//        red_name = (TextView) itemView.findViewById(R.id.asset_nameTextView_red);
+//        red_organization = (TextView) itemView.findViewById(R.id.organizationTextView_red);
+////        red_parentLayout = (LinearLayout) itemView.findViewById(R.id.parent_layout_red);
+
     }
 }

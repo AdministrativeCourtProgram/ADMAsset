@@ -33,7 +33,7 @@ public class MenuActivity extends AppCompatActivity {
 
             // List Asset
             case R.id.listViewBtn:
-                intent = new Intent(MenuActivity.this,RecyclerViewActivity.class);
+                intent = new Intent(MenuActivity.this,ListViewActivity.class);
                 intent.putExtra("status","firstcall");
                 startActivity(intent);
                 break;
