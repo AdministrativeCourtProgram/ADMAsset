@@ -31,4 +31,7 @@
     <string name="index">Index</string>
     <string name="newText">New Text</string>
     <string name="loding">Loading...</string>
+    <string name="duplicateWorning">Duplicate Asset Number</string>
+    <string name="duplicateWorningMsg1">Warning ... Recent entries will not save.</string>
+    <string name="duplicateWorningMsg2">Because it has been scanned.</string>
 </resources>
