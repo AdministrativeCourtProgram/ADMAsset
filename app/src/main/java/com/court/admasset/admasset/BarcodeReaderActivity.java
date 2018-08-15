@@ -139,6 +139,7 @@ public class BarcodeReaderActivity extends AppCompatActivity {
                                     Intent intent = new Intent(BarcodeReaderActivity.this, ListViewActivity.class);
                                     intent.putExtra("status", response.body().status);
                                     Log.v("TAG","iiiiii"+i);
+                                    Log.v("TAG","status"+response.body().status);
                                     startActivity(intent);
                                 }
                                 finish();
@@ -146,12 +147,11 @@ public class BarcodeReaderActivity extends AppCompatActivity {
                         }else{
                             try {
                                 JSONObject json = new JSONObject(response.errorBody().string());
-
                                 Toast.makeText(getApplicationContext(),json.getString("status"),Toast.LENGTH_LONG).show();
                                 finish();
                                 // Asset data duplicated or Asset data not found
                                 Intent intent = new Intent(BarcodeReaderActivity.this,ListViewActivity.class);
-                                intent.putExtra("status", json.getString("`status"));
+                                intent.putExtra("status", json.getString("status"));
                                 startActivity(intent);
                             } catch (JSONException e) {
                                 e.printStackTrace();
