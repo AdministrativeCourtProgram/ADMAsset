@@ -58,7 +58,6 @@ public class SearchAssetListActivity extends AppCompatActivity {
         });
 
         // ===== init ===== //
-        txtListSize = (TextView)findViewById(R.id.txtListSize);
         Intent intent = getIntent();
         String flag = intent.getStringExtra("flag");
 
