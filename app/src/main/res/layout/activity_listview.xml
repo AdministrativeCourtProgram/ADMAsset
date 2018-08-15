@@ -3,132 +3,131 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListViewActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ListViewActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/commitee_list_of_asset"
-            android:layout_weight="0."/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"/>
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="7.4"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.0"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="5.4"
-            android:orientation="vertical"
-            android:id="@+id/linearsize">
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6"
+                android:src="@drawable/commitee_list_of_asset" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearsize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#6fa0e9">
+                android:background="#6fa0e9"
+                android:orientation="horizontal">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="8dp"
                     android:text="No"
-                    android:gravity="center"
-                    android:textSize="17dp"
-                    android:textStyle="bold"
                     android:textColor="#000"
-                    android:padding="8dp"
-                    android:layout_weight="1"/>
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:padding="8dp"
                     android:text="Asset Number"
-                    android:gravity="center"
-                    android:textSize="17dp"
                     android:textColor="#000"
-                    android:padding="8dp"
-                    android:textStyle="bold"
-                    android:layout_weight="3"/>
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:padding="8dp"
                     android:text="Asset Name"
-                    android:gravity="center"
-                    android:padding="8dp"
-                    android:textSize="17dp"
-                    android:textStyle="bold"
                     android:textColor="#000"
-                    android:layout_weight="3"/>
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Organization"
-                    android:padding="8dp"
-                    android:textColor="#000"
+                    android:layout_weight="3"
                     android:gravity="center"
-                    android:textSize="17dp"
-                    android:textStyle="bold"
-                    android:layout_weight="3"/>
+                    android:padding="8dp"
+                    android:text="Organization"
+                    android:textColor="#000"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
             </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pullscreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:orientation="vertical">
 
             <android.support.v7.widget.ListViewCompat
                 android:id="@+id/listviewarea"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="4">
-
+                android:layout_weight="7"
+                >
             </android.support.v7.widget.ListViewCompat>
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.0"/>
-
-    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.5"/>
+        android:layout_weight="0.4" />
 
     <Button
+        android:id="@+id/scanBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/scanBtn"
-        android:text="scan_code"
+        android:layout_gravity="center_horizontal"
         android:layout_weight="0.2"
-        android:textColor="#FFF"
         android:background="@color/maincolor"
-        android:layout_gravity="center_horizontal"/>
+        android:text="scan_code"
+        android:textColor="#FFF" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.5"/>
+        android:layout_weight="0.4" />
+
+    </LinearLayout>
 </LinearLayout>

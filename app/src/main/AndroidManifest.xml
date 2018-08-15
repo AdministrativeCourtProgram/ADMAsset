@@ -34,7 +34,7 @@
         <activity android:name=".WaitingAssetActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".SummaryActivity" />
-        <activity android:name=".RecyclerViewActivity" />
+        <activity android:name=".WritecodeDialogActivity" />
         <activity android:name=".BarcodeReaderActivity" />
         <activity android:name=".SearchAssetListActivity"/>
         <activity android:name=".NotFoundDialogActivity"/>

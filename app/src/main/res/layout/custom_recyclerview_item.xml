@@ -45,7 +45,6 @@
         android:textColor="#000"
         android:gravity="center"
         android:layout_weight="3"
-
         />
 
 
