@@ -40,6 +40,7 @@ public class BarcodeReaderActivity extends AppCompatActivity {
     private Context context;
     private SharedPreferences sf;
     private int flag=0;
+    private ChooseDialogActivity chooseDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,13 @@ public class BarcodeReaderActivity extends AppCompatActivity {
 
         // check camera permission
         checkCameraPermission();
+
+        // choose how to scan
+        callChooseDialogActivity();
+
+
+
+
 
     }
     // check camera permission
@@ -174,5 +182,16 @@ public class BarcodeReaderActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         }
+    }
+
+    public void callChooseDialogActivity(){
+        chooseDialog = new ChooseDialogActivity(this);
+        chooseDialog.show();
+        chooseDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                Log.v("TAG","ChooseDialog");
+            }
+        });
     }
 }

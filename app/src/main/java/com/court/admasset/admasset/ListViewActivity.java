@@ -138,10 +138,10 @@ public class ListViewActivity extends AppCompatActivity {
         duplicateDialog = new DuplicateDialogActivity(this);
         duplicateDialog.show();
         duplicateDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
+                @Override
+                public void onDismiss(DialogInterface dialog) {
 
-            }
+                }
         });
     }
     public void callNotFoundDialog() {

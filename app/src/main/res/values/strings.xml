@@ -29,6 +29,10 @@
     <string name="summary_showWaiting">show waiting to check</string>
     <string name="searchAsset">search Asset</string>
     <string name="index">Index</string>
+    <string name="send">Send</string>
+    <string name="Camera">Camera Scan</string>
+    <string name="typing">Typing</string>
+    <string name="choose">Please select a scan method.</string>
     <string name="newText">New Text</string>
     <string name="loding">Loading...</string>
     <string name="duplicateWorning">Duplicate Asset Number</string>
@@ -39,4 +43,5 @@
     <string name="notfoundMsg2">Warning Recent entries will not save.</string>
     <string name="notfoundMsg3">Because this is not asset.</string>
     <string name="Networkfail">Network communication failure</string>
+    <string name="enterscancode">Please enter scan code</string>
 </resources>
