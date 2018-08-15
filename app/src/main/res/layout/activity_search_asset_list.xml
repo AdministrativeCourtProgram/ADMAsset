@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Committee : List of Asset"
+            android:text="@string/listasset_title"
             android:fontFamily="AppleSDGothicNeo-UltraLight"
             android:textStyle="bold"
             android:textColor="#000"
@@ -62,7 +62,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No"
+                    android:text="@string/no"
                     android:gravity="center"
                     android:textSize="17dp"
                     android:textStyle="bold"
@@ -72,7 +72,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Asset Number"
+                    android:text="@string/assetNumber"
                     android:gravity="center"
                     android:textSize="17dp"
                     android:textStyle="bold"
@@ -82,7 +82,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Asset Name"
+                    android:text="@string/assetName"
                     android:gravity="center"
                     android:textSize="17dp"
                     android:textStyle="bold"
@@ -92,7 +92,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Organization"
+                    android:text="@string/organization"
                     android:gravity="center"
                     android:textSize="17dp"
                     android:textStyle="bold"

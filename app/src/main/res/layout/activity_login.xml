@@ -70,7 +70,7 @@
                 android:layout_gravity="center"
                 android:paddingTop="10dp"
                 android:fontFamily="AppleSDGothicNeo-UltraLight"
-                android:text="Login"
+                android:text="@string/Login"
                 android:textStyle="bold"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"

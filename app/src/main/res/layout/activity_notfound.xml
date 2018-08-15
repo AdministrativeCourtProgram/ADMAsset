@@ -55,7 +55,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:layout_gravity="center"
-            android:text="Close"
+            android:text="@string/Close"
             android:background="@color/zxing_transparent"
             android:textColor="#ffffff"
             android:textSize="12sp" />

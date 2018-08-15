@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Index"
+        android:text="@string/index"
         android:id="@+id/IndexTextView_red"
         android:textColor="#000000"
         android:gravity="center"
@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="@string/newText"
         android:id="@+id/asset_noTextView_red"
         android:textColor="#000"
         android:gravity="center"
@@ -30,7 +30,7 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="@string/newText"
         android:id="@+id/asset_nameTextView_red"
         android:textSize="18dp"
         android:textColor="#000"
@@ -40,7 +40,7 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="@string/newText"
         android:id="@+id/organizationTextView_red"
         android:textSize="18dp"
         android:textColor="#000"

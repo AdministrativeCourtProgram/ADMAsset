@@ -36,14 +36,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:text="Asset Number:"
+                android:text="@string/assetNumber"
                 android:textColor="#00aaff"
                 android:textSize="15dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Asset Name:"
+                android:text="@string/assetName"
                 android:gravity="right"
                 android:textSize="15dp"
                 android:textColor="#00aaff"/>
@@ -51,7 +51,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Organization:"
+                android:text="@string/organization"
                 android:gravity="right"
                 android:textSize="15dp"
                 android:textColor="#00aaff"/>
@@ -103,7 +103,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="NOTE : FOR THIS ASSET"
+        android:text="@string/sendmsg_note"
         android:textSize="15dp"
         android:textStyle="bold"
         android:padding="15dp"
