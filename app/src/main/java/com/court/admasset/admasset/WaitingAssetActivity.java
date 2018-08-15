@@ -157,6 +157,8 @@ public class WaitingAssetActivity extends AppCompatActivity {
     }
 
     private void initMaindataRoom(){
+
+
         Call<MaindataRoomResult> maindataRoomResultCall = service.getMaindataRoomResult(map);
         maindataRoomResultCall.enqueue(new Callback<MaindataRoomResult>() {
             @Override

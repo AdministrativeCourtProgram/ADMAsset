@@ -47,7 +47,10 @@ public interface NetworkService {
     Call<MaindataFloorResult> getMaindataFloorResult(@HeaderMap Map<String, String> headers);
 
     @GET("api/maindata/searchRoom/")
-    Call<MaindataRoomResult> getMaindataRoomResult(@HeaderMap Map<String, String> headers);
+    Call<MaindataRoomResult> getMaindataRoomResult(@HeaderMap Map<String, String> headers
+    );
+
+    );
 
     @GET
     Call<MaindataWorkgroupResult> getMaindataWorkgroupResult(@Url String check_court,@HeaderMap Map<String, String> headers);
