@@ -119,10 +119,7 @@ public class SendMsgActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (notice_msg.length() == 0) {
-                    Toast.makeText(getApplicationContext(), "Please enter notice", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+
 
                 service = ApplicationController.getInstance().getNetworkService();
                 sendMsgInfo = new SendMsgInfo();
@@ -132,6 +129,11 @@ public class SendMsgActivity extends AppCompatActivity {
                 sendMsgInfo.group_id = Integer.parseInt(group_id);
                 sendMsgInfo.asset_no = asset_no;
                 sendMsgInfo.notice_msg = notice_msg.getText().toString();
+
+                if (notice_msg.length() == 0) {
+                    Toast.makeText(getApplicationContext(), "Please enter notice", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 Log.v("TAG","000000000"+sendMsgInfo.id+"000000000");
 
