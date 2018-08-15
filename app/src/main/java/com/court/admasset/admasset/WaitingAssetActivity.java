@@ -157,7 +157,7 @@ public class WaitingAssetActivity extends AppCompatActivity {
                         floorMap = new HashMap<>();
                         ArrayList<String> aa = new ArrayList<String>();
                         for(int i = 0; i<response.body().result.size(); i++){
-                            floorMap.put(response.body().result.get(i).floor_id+"",response.body().result.get(i).floor_name);
+                            floorMap.put(response.body().result.get(i).floor_name,response.body().result.get(i).floor_id+"");
                             aa.add(response.body().result.get(i).floor_name);
                         }
                         floorSpinner.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
@@ -188,7 +188,7 @@ public class WaitingAssetActivity extends AppCompatActivity {
                         ArrayList<String> aa = new ArrayList<String>();
                         aa.add("-");
                         for(int i = 0; i<response.body().result.size(); i++){
-                            roomMap.put(response.body().result.get(i).room_id+"",response.body().result.get(i).room_name);
+                            roomMap.put(response.body().result.get(i).room_name,response.body().result.get(i).room_id+"");
                             aa.add(response.body().result.get(i).room_name);
                         }
                         roomSpinner.setAdapter(new ArrayAdapter(
@@ -219,7 +219,7 @@ public class WaitingAssetActivity extends AppCompatActivity {
                         ArrayList<String> aa = new ArrayList<String>();
                         aa.add("-");
                         for(int i = 0; i<response.body().result.size(); i++){
-                            workMap.put(response.body().result.get(i).c_code+"",response.body().result.get(i).c_name);
+                            workMap.put(response.body().result.get(i).c_name,response.body().result.get(i).c_code+"");
                             aa.add(response.body().result.get(i).c_name);
                         }
                         workSpinner.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
