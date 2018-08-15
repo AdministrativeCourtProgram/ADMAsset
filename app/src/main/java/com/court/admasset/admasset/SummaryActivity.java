@@ -75,9 +75,13 @@ public class SummaryActivity extends AppCompatActivity {
         showchecked.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(SummaryActivity.this, SearchAssetListActivity.class);
-                intent1.putExtra("flag","summary");
-                startActivity(intent1);
+                if(checkNum.getText().equals("0")){
+                    Toast.makeText(SummaryActivity.this,"Nothing Checked", Toast.LENGTH_LONG).show();
+                }else{
+                    Intent intent1 = new Intent(SummaryActivity.this, SearchAssetListActivity.class);
+                    intent1.putExtra("flag","summary");
+                    startActivity(intent1);
+                }
             }
         });
         // showWaiting
@@ -149,7 +153,11 @@ public class SummaryActivity extends AppCompatActivity {
                     if(response.body()!=null){
                         progressOFF();
 
-                        checkNum.setText(response.body().result.get(1).flag_count.toString());
+                        if(response.body().result.size()!=2){
+                            checkNum.setText("0");
+                        }else{
+                            checkNum.setText(response.body().result.get(1).flag_count.toString());
+                        }
                         allNum.setText(response.body().result.get(0).flag_count.toString());
                     }
                 }else{
