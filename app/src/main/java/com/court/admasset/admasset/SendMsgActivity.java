@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -70,6 +71,19 @@ public class SendMsgActivity extends AppCompatActivity {
 //            asset_name = intent.getStringExtra(asset_name);
 //            organization = intent.getStringExtra(organization);
 //        }
+
+        // ====== home Button ====== //
+        ImageButton homeBtn = (ImageButton)findViewById(R.id.homeBtn);
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent intent = new Intent(RecyclerViewActivity.this, MenuActivity.class);
+                Intent intent = new Intent(SendMsgActivity.this, MenuActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         Log.v("TAG","1111111111111"+asset_no+asset_name+organization);
         InitView();

@@ -13,6 +13,8 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +44,18 @@ public class SearchAssetListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_asset_list);
 
+        // ====== home Button ====== //
+        ImageButton homeBtn = (ImageButton)findViewById(R.id.homeBtn);
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent intent = new Intent(RecyclerViewActivity.this, MenuActivity.class);
+                Intent intent = new Intent(SearchAssetListActivity.this, MenuActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         // ===== init ===== //
         txtListSize = (TextView)findViewById(R.id.txtListSize);

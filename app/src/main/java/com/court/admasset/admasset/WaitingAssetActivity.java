@@ -10,9 +10,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDialog;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -67,6 +69,19 @@ public class WaitingAssetActivity extends AppCompatActivity {
         initMaindataFloor();
         initMaindataRoom();
         initMaindataWorkgroup();
+
+        // ====== home Button ====== //
+        ImageButton homeBtn = (ImageButton)findViewById(R.id.homeBtn);
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent intent = new Intent(RecyclerViewActivity.this, MenuActivity.class);
+                Intent intent = new Intent(WaitingAssetActivity.this, MenuActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         Button searchAssetBtn = (Button)findViewById(R.id.searchAssetBtn);
         searchAssetBtn.setOnClickListener(new View.OnClickListener() {
@@ -152,7 +167,11 @@ public class WaitingAssetActivity extends AppCompatActivity {
                         for(int i = 0; i<response.body().result.size(); i++){
                             aa.add(response.body().result.get(i).room_name);
                         }
-                        spinner3.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
+
+                        spinner3.setAdapter(new ArrayAdapter(
+                                WaitingAssetActivity.this,
+                                R.layout.support_simple_spinner_dropdown_item,
+                                aa));
                     }
                 }else{
                     Toast.makeText(WaitingAssetActivity.this,"Failed to receive room data",Toast.LENGTH_LONG).show();

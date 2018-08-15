@@ -46,7 +46,7 @@ public interface NetworkService {
     @GET("api/maindata/floor")
     Call<MaindataFloorResult> getMaindataFloorResult(@HeaderMap Map<String, String> headers);
 
-    @GET("api/maindata/room")
+    @GET("api/maindata/searchRoom/")
     Call<MaindataRoomResult> getMaindataRoomResult(@HeaderMap Map<String, String> headers);
 
     @GET

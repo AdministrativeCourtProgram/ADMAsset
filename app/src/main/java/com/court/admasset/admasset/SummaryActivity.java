@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatDialog;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,6 +57,19 @@ public class SummaryActivity extends AppCompatActivity {
 
         Button showchecked = (Button)findViewById(R.id.showchecked);
         Button showWaiting= (Button)findViewById(R.id.showWaiting);
+
+        // ====== home Button ====== //
+        ImageButton homeBtn = (ImageButton)findViewById(R.id.homeBtn);
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent intent = new Intent(RecyclerViewActivity.this, MenuActivity.class);
+                Intent intent = new Intent(SummaryActivity.this, MenuActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         // showchecked
         showchecked.setOnClickListener(new View.OnClickListener() {
