@@ -63,7 +63,7 @@
             android:background="@color/maincolor"
             android:fontFamily="AppleSDGothicNeo-UltraLight"
             android:padding="5dp"
-            android:text="Select Workgroup from List"
+            android:text="@string/select_workgroup"
             android:textColor="#000"
             android:textSize="20sp"
              />
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="AppleSDGothicNeo-UltraLight"
             android:background="@color/maincolor"
-            android:text="Select FLOOR"
+            android:text="@string/select_floor"
             android:textColor="#000"
             android:textSize="20sp"
              />
@@ -98,7 +98,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="AppleSDGothicNeo-UltraLight"
-            android:text="Select ROOM"
+            android:text="@string/select_room"
             android:background="@color/maincolor"
             android:textColor="#000"
             android:textSize="20sp"
@@ -124,7 +124,7 @@
             android:background="@color/maincolor"
             android:textColor="#FFFF"
             android:layout_above="@id/homeBtn"
-            android:text="search Asset"
+            android:text="@string/searchAsset"
             />
 
 

@@ -98,9 +98,9 @@ public class SendMsgActivity extends AppCompatActivity {
         notice_msg = (EditText) findViewById(R.id.textMsg);
         sendMsgBtn = (Button) findViewById(R.id.sendMsgBtn);
 
-        numview.setText(asset_no);
-        nameview.setText(asset_name);
-        orview.setText(organization);
+        numview.setText(" : "+asset_no);
+        nameview.setText(" : "+asset_name);
+        orview.setText(" : "+organization);
 
         sf = getSharedPreferences("asset", 0);
 

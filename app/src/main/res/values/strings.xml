@@ -12,33 +12,23 @@
     <string name="select_workgroup">Select Workgroup from List</string>
     <string name="select_floor">Select Floor</string>
     <string name="select_room">Select Room</string>
-
-    <string-array name="workgroup_array">
-        <item>Ateam</item>
-        <item>Bteam</item>
-        <item>Cteam</item>
-        <item>Dteam</item>
-        <item>Eteam</item>
-        <item>Fteam</item>
-    </string-array>
-
-    <string-array name="floor_array">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-    </string-array>
-
-    <string-array name="room_array">
-        <item>Aroom</item>
-        <item>Broom</item>
-        <item>Croom</item>
-        <item>Droom</item>
-        <item>Eroom</item>
-        <item>Froom</item>
-    </string-array>
-
     <string name="summary_title">Committee : Summary Report</string>
+    <string name="listasset_title">Committee : List of Asset</string>
+    <string name="sendmsg_note">NOTE : FOR THIS ASSET</string>
+
+    <string name="no">No</string>
+    <string name="assetNumber">Asset Number</string>
+    <string name="assetName">Asset Name</string>
+    <string name="organization">Organization</string>
+    <string name="scan_code">SCAN CODE</string>
+    <string name="Login">Login</string>
+    <string name="Close">Close</string>
+    <string name="checked">Checked</string>
+    <string name="allasset">All asset</string>
+    <string name="summary_showChecked">show checked asset</string>
+    <string name="summary_showWaiting">show waiting to check</string>
+    <string name="searchAsset">search Asset</string>
+    <string name="index">Index</string>
+    <string name="newText">New Text</string>
+    <string name="loding">Loading...</string>
 </resources>

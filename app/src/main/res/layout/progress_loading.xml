@@ -20,7 +20,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Loading..."
+            android:text="@string/loding"
             android:id="@+id/tv_progress_message"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#ffffff"/>
