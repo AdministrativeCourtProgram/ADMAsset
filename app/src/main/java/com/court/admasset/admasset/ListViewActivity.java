@@ -34,6 +34,7 @@ public class ListViewActivity extends AppCompatActivity {
     private ListViewAdapter adapter;
     private Map<String, String> map;
     private SharedPreferences sf;
+    private int flag=1;
     private String id;
     private String user_name;
     private String check_court;
@@ -77,7 +78,10 @@ public class ListViewActivity extends AppCompatActivity {
             }
         });
 
+
         barcode_result = intent.getStringExtra("status");
+        Log.v("TAG","barcode_result======"+barcode_result);
+
         if(barcode_result.equals("Asset data duplicated.")) {
             //Log.v("TAG","이 데이터는 겹칩니다.");
             callDuplicateDialog();

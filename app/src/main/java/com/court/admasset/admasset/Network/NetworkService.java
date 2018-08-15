@@ -5,6 +5,7 @@ import com.court.admasset.admasset.Model.CheckedListResult;
 import com.court.admasset.admasset.Model.LoginInfo;
 import com.court.admasset.admasset.Model.LoginInfoResult;
 import com.court.admasset.admasset.Model.MaindataFloorResult;
+import com.court.admasset.admasset.Model.MaindataRoomInfo;
 import com.court.admasset.admasset.Model.MaindataRoomResult;
 import com.court.admasset.admasset.Model.MaindataWorkgroupResult;
 import com.court.admasset.admasset.Model.ScanInfo;
@@ -46,11 +47,10 @@ public interface NetworkService {
     @GET("api/maindata/floor")
     Call<MaindataFloorResult> getMaindataFloorResult(@HeaderMap Map<String, String> headers);
 
-    @GET("api/maindata/searchRoom/")
-    Call<MaindataRoomResult> getMaindataRoomResult(@HeaderMap Map<String, String> headers
-    );
-
-    );
+    @POST("/api/maindata/searchRoom/")
+    Call<MaindataRoomResult> getMaindataRoomResult(
+            @HeaderMap Map<String, String> headers,
+            @Body MaindataRoomInfo maindataRoomInfo);
 
     @GET
     Call<MaindataWorkgroupResult> getMaindataWorkgroupResult(@Url String check_court,@HeaderMap Map<String, String> headers);

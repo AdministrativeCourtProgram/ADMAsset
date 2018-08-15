@@ -138,6 +138,7 @@ public class BarcodeReaderActivity extends AppCompatActivity {
                                 else {
                                     Intent intent = new Intent(BarcodeReaderActivity.this, ListViewActivity.class);
                                     intent.putExtra("status", response.body().status);
+                                    Log.v("TAG","iiiiii"+i);
                                     startActivity(intent);
                                 }
                                 finish();
@@ -150,7 +151,7 @@ public class BarcodeReaderActivity extends AppCompatActivity {
                                 finish();
                                 // Asset data duplicated or Asset data not found
                                 Intent intent = new Intent(BarcodeReaderActivity.this,ListViewActivity.class);
-                                intent.putExtra("status", json.getString("status"));
+                                intent.putExtra("status", json.getString("`status"));
                                 startActivity(intent);
                             } catch (JSONException e) {
                                 e.printStackTrace();

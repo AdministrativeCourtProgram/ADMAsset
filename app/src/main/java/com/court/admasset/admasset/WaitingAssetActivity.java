@@ -22,6 +22,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import com.court.admasset.admasset.Model.GetReportInfo;
+import com.court.admasset.admasset.Model.MaindataRoomInfo;
 import com.court.admasset.admasset.Model.SearchAssetResult;
 import com.court.admasset.admasset.Network.NetworkService;
 import com.court.admasset.admasset.Network.ApplicationController;
@@ -157,10 +158,11 @@ public class WaitingAssetActivity extends AppCompatActivity {
     }
 
     private void initMaindataRoom(){
+        MaindataRoomInfo maindataRoomInfo = new MaindataRoomInfo();
+        maindataRoomInfo.check_court = Integer.parseInt(sf.getString("check_court","1"));
 
-
-        Call<MaindataRoomResult> maindataRoomResultCall = service.getMaindataRoomResult(map);
-        maindataRoomResultCall.enqueue(new Callback<MaindataRoomResult>() {
+        Call<MaindataRoomResult> getMaindataRoomResultCall = service.getMaindataRoomResult(map,maindataRoomInfo);
+        getMaindataRoomResultCall.enqueue(new Callback<MaindataRoomResult>() {
             @Override
             public void onResponse(Call<MaindataRoomResult> call, Response<MaindataRoomResult> response) {
                 if(response.isSuccessful()){
