@@ -38,6 +38,5 @@
     <string name="notfoundMsg1">This item is Not Asset</string>
     <string name="notfoundMsg2">Warning Recent entries will not save.</string>
     <string name="notfoundMsg3">Because this is not asset.</string>
-
-    <string name="sacanToast">Network communication failure</string>
+    <string name="Networkfail">Network communication failure</string>
 </resources>

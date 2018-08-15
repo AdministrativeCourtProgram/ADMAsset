@@ -39,11 +39,11 @@ import retrofit2.Response;
 
 public class WaitingAssetActivity extends AppCompatActivity {
 
-    private Spinner spinner1;
-    private Spinner spinner2;
-    private Spinner spinner3;
+    private Spinner workSpinner;
+    private Spinner floorSpinner;
+    private Spinner roomSpinner;
 
-    private Map<String, String> map;
+    private Map<String, String> map, roomMap, floorMap, workMap;
     private String check_court;
     private NetworkService service;
     private SharedPreferences sf;
@@ -54,9 +54,9 @@ public class WaitingAssetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_waiting_asset_list);
 
-        spinner1 = (Spinner) findViewById(R.id.workgroupList);
-        spinner2 = (Spinner) findViewById(R.id.floorList);
-        spinner3 = (Spinner) findViewById(R.id.roomList);
+        workSpinner = (Spinner) findViewById(R.id.workgroupList);
+        floorSpinner = (Spinner) findViewById(R.id.floorList);
+        roomSpinner = (Spinner) findViewById(R.id.roomList);
 
         sf = getSharedPreferences("asset",0);
         map = new HashMap<>();
@@ -100,23 +100,38 @@ public class WaitingAssetActivity extends AppCompatActivity {
     }
 
     public void  callSearchList(){
-        GetReportInfo getReportInfo = new GetReportInfo();
-        getReportInfo.id = Integer.parseInt(sf.getString("id","1"));
-        getReportInfo.user_name = sf.getString("user_name","1");
-        getReportInfo.check_court = Integer.parseInt(sf.getString("check_court","1"));
-        getReportInfo.group_id = Integer.parseInt(sf.getString("group_id","1"));
+        Map<String, String> mapBody = new HashMap<>();
+        mapBody.put("id",sf.getString("id","1"));
+        mapBody.put("user_name",sf.getString("user_name","1"));
+        mapBody.put("check_court",sf.getString("check_court","1"));
+        mapBody.put("group_id",sf.getString("group_id","1"));
 
-        Call<SearchAssetResult> getSearchAssetResultCall = service.getSearchAssetResult(map,getReportInfo);
+        if(!workSpinner.getSelectedItem().toString().equals("-")){
+            mapBody.put("workgroup_id",workMap.get(workSpinner.getSelectedItem().toString()));
+        }
+        if(!floorSpinner.getSelectedItem().toString().equals("-")){
+            mapBody.put("floor_id",floorMap.get(floorSpinner.getSelectedItem().toString()));
+        }
+        if(!roomSpinner.getSelectedItem().toString().equals("-")){
+            mapBody.put("room_id",roomMap.get(roomSpinner.getSelectedItem().toString()));
+        }
+
+        Call<SearchAssetResult> getSearchAssetResultCall = service.getSearchAssetResult(map, mapBody);
         getSearchAssetResultCall.enqueue(new Callback<SearchAssetResult>() {
             @Override
             public void onResponse(Call<SearchAssetResult> call, Response<SearchAssetResult> response) {
                 if(response.isSuccessful()){
                     if(response.body()!=null){
-                        Intent intent = new Intent(WaitingAssetActivity.this, SearchAssetListActivity.class);
-                        intent.putExtra("flag","waiting");
-                        intent.putExtra("searchAssetList", response.body().result);
-                        startActivity(intent);
-                        progressOFF();
+                        if(response.body().result.size()==0){
+                            Toast.makeText(WaitingAssetActivity.this, "No data available", Toast.LENGTH_LONG).show();
+                            progressOFF();
+                        }else{
+                            Intent intent = new Intent(WaitingAssetActivity.this, SearchAssetListActivity.class);
+                            intent.putExtra("flag","waiting");
+                            intent.putExtra("searchAssetList", response.body().result);
+                            startActivity(intent);
+                            progressOFF();
+                        }
                     }
                 }else{
                     Toast.makeText(WaitingAssetActivity.this, "Failed to receive searchAsset data", Toast.LENGTH_LONG).show();
@@ -139,11 +154,13 @@ public class WaitingAssetActivity extends AppCompatActivity {
             public void onResponse(Call<MaindataFloorResult> call, Response<MaindataFloorResult> response) {
                 if(response.isSuccessful()){
                     if(response.body().result!=null){
+                        floorMap = new HashMap<>();
                         ArrayList<String> aa = new ArrayList<String>();
                         for(int i = 0; i<response.body().result.size(); i++){
+                            floorMap.put(response.body().result.get(i).floor_name,response.body().result.get(i).floor_id+"");
                             aa.add(response.body().result.get(i).floor_name);
                         }
-                        spinner2.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
+                        floorSpinner.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
                     }
                 }else{
                     Toast.makeText(WaitingAssetActivity.this,"Failed to receive floor data",Toast.LENGTH_LONG).show();
@@ -167,12 +184,14 @@ public class WaitingAssetActivity extends AppCompatActivity {
             public void onResponse(Call<MaindataRoomResult> call, Response<MaindataRoomResult> response) {
                 if(response.isSuccessful()){
                     if(response.body().result!=null){
+                        roomMap = new HashMap<>();
                         ArrayList<String> aa = new ArrayList<String>();
+                        aa.add("-");
                         for(int i = 0; i<response.body().result.size(); i++){
+                            roomMap.put(response.body().result.get(i).room_name,response.body().result.get(i).room_id+"");
                             aa.add(response.body().result.get(i).room_name);
                         }
-
-                        spinner3.setAdapter(new ArrayAdapter(
+                        roomSpinner.setAdapter(new ArrayAdapter(
                                 WaitingAssetActivity.this,
                                 R.layout.support_simple_spinner_dropdown_item,
                                 aa));
@@ -196,11 +215,14 @@ public class WaitingAssetActivity extends AppCompatActivity {
             public void onResponse(Call<MaindataWorkgroupResult> call, Response<MaindataWorkgroupResult> response) {
                 if(response.isSuccessful()){
                     if(response.body().result!=null){
+                        workMap = new HashMap<>();
                         ArrayList<String> aa = new ArrayList<String>();
+                        aa.add("-");
                         for(int i = 0; i<response.body().result.size(); i++){
+                            workMap.put(response.body().result.get(i).c_name,response.body().result.get(i).c_code+"");
                             aa.add(response.body().result.get(i).c_name);
                         }
-                        spinner1.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
+                        workSpinner.setAdapter(new ArrayAdapter(WaitingAssetActivity.this, R.layout.support_simple_spinner_dropdown_item, aa));
                     }
                 }else{
                     Toast.makeText(WaitingAssetActivity.this,"Failed to receive Workgroup data",Toast.LENGTH_LONG).show();
