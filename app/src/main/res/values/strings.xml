@@ -34,4 +34,6 @@
     <string name="duplicateWorning">Duplicate Asset Number</string>
     <string name="duplicateWorningMsg1">Warning ... Recent entries will not save.</string>
     <string name="duplicateWorningMsg2">Because it has been scanned.</string>
+
+    <string name="Networkfail">Network communication failure</string>
 </resources>

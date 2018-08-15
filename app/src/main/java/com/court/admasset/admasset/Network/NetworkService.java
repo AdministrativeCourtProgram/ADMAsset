@@ -58,7 +58,7 @@ public interface NetworkService {
     @POST("api/asset/searchAsset")
     Call<SearchAssetResult> getSearchAssetResult(
             @HeaderMap Map<String, String> headers,
-            @Body GetReportInfo getReportInfo);
+            @Body Map<String, String> getReportInfo);
 
 
     @POST("/api/asset/notice")
