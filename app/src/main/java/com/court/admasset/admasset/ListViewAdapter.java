@@ -64,7 +64,7 @@ public class ListViewAdapter extends BaseAdapter {
 
 
         if(itemdata.get(position).samecourt ==0){
-            convertView.setBackgroundColor(Color.RED);
+            convertView.setBackgroundColor(Color.rgb(216,43,43));
             Log.v("TAG","REDDDDDDDD");
         }else
         {

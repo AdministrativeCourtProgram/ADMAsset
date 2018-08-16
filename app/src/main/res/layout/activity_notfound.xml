@@ -19,16 +19,12 @@
             android:layout_weight="1.5"/>
 
         <ImageView
-            android:layout_width="35dp"
-            android:layout_height="25dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
-            android:src="@drawable/warning"
+            android:src="@drawable/redwarning"
+            android:background="@color/zxing_transparent"
             android:layout_weight="1"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -69,7 +65,7 @@
             android:layout_gravity="center"
             android:layout_weight="1.0"
             android:text="@string/Close"
-            android:backgroundTint="#d83c29"
+            android:backgroundTint="#c75c5c"
             android:fontFamily="AppleSDGothicNeo-UltraLight"
             android:textColor="#ffffff"
             android:textSize="15sp" />
